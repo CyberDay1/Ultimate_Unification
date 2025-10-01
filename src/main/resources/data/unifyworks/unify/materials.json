@@ -1,0 +1,1452 @@
+{
+  "version": 1,
+  "materials": [
+    {
+      "name": "aluminum",
+      "display": "Aluminum",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/aluminum",
+          "c:ores/aluminum"
+        ],
+        "raw": [
+          "forge:raw_materials/aluminum",
+          "c:raw_materials/aluminum"
+        ],
+        "ingot": [
+          "forge:ingots/aluminum",
+          "c:ingots/aluminum"
+        ],
+        "dust": [
+          "forge:dusts/aluminum",
+          "c:dusts/aluminum"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/aluminum",
+          "c:storage_blocks/aluminum"
+        ]
+      }
+    },
+    {
+      "name": "apatite",
+      "display": "Apatite",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/apatite",
+          "c:ores/apatite"
+        ],
+        "gem": [
+          "forge:gems/apatite",
+          "c:gems/apatite"
+        ],
+        "dust": [
+          "forge:dusts/apatite",
+          "c:dusts/apatite"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/apatite",
+          "c:storage_blocks/apatite"
+        ]
+      }
+    },
+    {
+      "name": "bronze",
+      "display": "Bronze",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/bronze",
+          "c:ores/bronze"
+        ],
+        "raw": [
+          "forge:raw_materials/bronze",
+          "c:raw_materials/bronze"
+        ],
+        "ingot": [
+          "forge:ingots/bronze",
+          "c:ingots/bronze"
+        ],
+        "dust": [
+          "forge:dusts/bronze",
+          "c:dusts/bronze"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/bronze",
+          "c:storage_blocks/bronze"
+        ]
+      }
+    },
+    {
+      "name": "charcoal",
+      "display": "Charcoal",
+      "kind": "stone",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "any": [
+          "forge:charcoal",
+          "c:charcoal"
+        ]
+      }
+    },
+    {
+      "name": "constantan",
+      "display": "Constantan",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/constantan",
+          "c:ores/constantan"
+        ],
+        "raw": [
+          "forge:raw_materials/constantan",
+          "c:raw_materials/constantan"
+        ],
+        "ingot": [
+          "forge:ingots/constantan",
+          "c:ingots/constantan"
+        ],
+        "dust": [
+          "forge:dusts/constantan",
+          "c:dusts/constantan"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/constantan",
+          "c:storage_blocks/constantan"
+        ]
+      }
+    },
+    {
+      "name": "copper",
+      "display": "Copper",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/copper",
+          "c:ores/copper"
+        ],
+        "raw": [
+          "forge:raw_materials/copper",
+          "c:raw_materials/copper"
+        ],
+        "ingot": [
+          "forge:ingots/copper",
+          "c:ingots/copper"
+        ],
+        "dust": [
+          "forge:dusts/copper",
+          "c:dusts/copper"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/copper",
+          "c:storage_blocks/copper"
+        ]
+      }
+    },
+    {
+      "name": "diamond",
+      "display": "Diamond",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/diamond",
+          "c:ores/diamond"
+        ],
+        "gem": [
+          "forge:gems/diamond",
+          "c:gems/diamond"
+        ],
+        "dust": [
+          "forge:dusts/diamond",
+          "c:dusts/diamond"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/diamond",
+          "c:storage_blocks/diamond"
+        ]
+      }
+    },
+    {
+      "name": "electrum",
+      "display": "Electrum",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/electrum",
+          "c:ores/electrum"
+        ],
+        "raw": [
+          "forge:raw_materials/electrum",
+          "c:raw_materials/electrum"
+        ],
+        "ingot": [
+          "forge:ingots/electrum",
+          "c:ingots/electrum"
+        ],
+        "dust": [
+          "forge:dusts/electrum",
+          "c:dusts/electrum"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/electrum",
+          "c:storage_blocks/electrum"
+        ]
+      }
+    },
+    {
+      "name": "gold",
+      "display": "Gold",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/gold",
+          "c:ores/gold"
+        ],
+        "raw": [
+          "forge:raw_materials/gold",
+          "c:raw_materials/gold"
+        ],
+        "ingot": [
+          "forge:ingots/gold",
+          "c:ingots/gold"
+        ],
+        "dust": [
+          "forge:dusts/gold",
+          "c:dusts/gold"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/gold",
+          "c:storage_blocks/gold"
+        ]
+      }
+    },
+    {
+      "name": "graphite",
+      "display": "Graphite",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/graphite",
+          "c:ores/graphite"
+        ],
+        "gem": [
+          "forge:gems/graphite",
+          "c:gems/graphite"
+        ],
+        "dust": [
+          "forge:dusts/graphite",
+          "c:dusts/graphite"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/graphite",
+          "c:storage_blocks/graphite"
+        ]
+      }
+    },
+    {
+      "name": "invar",
+      "display": "Invar",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/invar",
+          "c:ores/invar"
+        ],
+        "raw": [
+          "forge:raw_materials/invar",
+          "c:raw_materials/invar"
+        ],
+        "ingot": [
+          "forge:ingots/invar",
+          "c:ingots/invar"
+        ],
+        "dust": [
+          "forge:dusts/invar",
+          "c:dusts/invar"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/invar",
+          "c:storage_blocks/invar"
+        ]
+      }
+    },
+    {
+      "name": "iron",
+      "display": "Iron",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/iron",
+          "c:ores/iron"
+        ],
+        "raw": [
+          "forge:raw_materials/iron",
+          "c:raw_materials/iron"
+        ],
+        "ingot": [
+          "forge:ingots/iron",
+          "c:ingots/iron"
+        ],
+        "dust": [
+          "forge:dusts/iron",
+          "c:dusts/iron"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/iron",
+          "c:storage_blocks/iron"
+        ]
+      }
+    },
+    {
+      "name": "lead",
+      "display": "Lead",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/lead",
+          "c:ores/lead"
+        ],
+        "raw": [
+          "forge:raw_materials/lead",
+          "c:raw_materials/lead"
+        ],
+        "ingot": [
+          "forge:ingots/lead",
+          "c:ingots/lead"
+        ],
+        "dust": [
+          "forge:dusts/lead",
+          "c:dusts/lead"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/lead",
+          "c:storage_blocks/lead"
+        ]
+      }
+    },
+    {
+      "name": "lumium",
+      "display": "Lumium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/lumium",
+          "c:ores/lumium"
+        ],
+        "raw": [
+          "forge:raw_materials/lumium",
+          "c:raw_materials/lumium"
+        ],
+        "ingot": [
+          "forge:ingots/lumium",
+          "c:ingots/lumium"
+        ],
+        "dust": [
+          "forge:dusts/lumium",
+          "c:dusts/lumium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/lumium",
+          "c:storage_blocks/lumium"
+        ]
+      }
+    },
+    {
+      "name": "netherite",
+      "display": "Netherite",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "ore": [
+          "forge:ores/netherite",
+          "c:ores/netherite"
+        ],
+        "raw": [
+          "forge:raw_materials/netherite",
+          "c:raw_materials/netherite"
+        ],
+        "ingot": [
+          "forge:ingots/netherite",
+          "c:ingots/netherite"
+        ],
+        "dust": [
+          "forge:dusts/netherite",
+          "c:dusts/netherite"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/netherite",
+          "c:storage_blocks/netherite"
+        ]
+      }
+    },
+    {
+      "name": "nickel",
+      "display": "Nickel",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/nickel",
+          "c:ores/nickel"
+        ],
+        "raw": [
+          "forge:raw_materials/nickel",
+          "c:raw_materials/nickel"
+        ],
+        "ingot": [
+          "forge:ingots/nickel",
+          "c:ingots/nickel"
+        ],
+        "dust": [
+          "forge:dusts/nickel",
+          "c:dusts/nickel"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/nickel",
+          "c:storage_blocks/nickel"
+        ]
+      }
+    },
+    {
+      "name": "obsidian",
+      "display": "Obsidian",
+      "kind": "stone",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "any": [
+          "forge:obsidian",
+          "c:obsidian"
+        ]
+      }
+    },
+    {
+      "name": "osmium",
+      "display": "Osmium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/osmium",
+          "c:ores/osmium"
+        ],
+        "raw": [
+          "forge:raw_materials/osmium",
+          "c:raw_materials/osmium"
+        ],
+        "ingot": [
+          "forge:ingots/osmium",
+          "c:ingots/osmium"
+        ],
+        "dust": [
+          "forge:dusts/osmium",
+          "c:dusts/osmium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/osmium",
+          "c:storage_blocks/osmium"
+        ]
+      }
+    },
+    {
+      "name": "quartz",
+      "display": "Quartz",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "netherrack": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/quartz",
+          "c:ores/quartz"
+        ],
+        "gem": [
+          "forge:gems/quartz",
+          "c:gems/quartz"
+        ],
+        "dust": [
+          "forge:dusts/quartz",
+          "c:dusts/quartz"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/quartz",
+          "c:storage_blocks/quartz"
+        ]
+      }
+    },
+    {
+      "name": "refined_glowstone",
+      "display": "Refined glowstone",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "ore": [
+          "forge:ores/refined_glowstone",
+          "c:ores/refined_glowstone"
+        ],
+        "raw": [
+          "forge:raw_materials/refined_glowstone",
+          "c:raw_materials/refined_glowstone"
+        ],
+        "ingot": [
+          "forge:ingots/refined_glowstone",
+          "c:ingots/refined_glowstone"
+        ],
+        "dust": [
+          "forge:dusts/refined_glowstone",
+          "c:dusts/refined_glowstone"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/refined_glowstone",
+          "c:storage_blocks/refined_glowstone"
+        ]
+      }
+    },
+    {
+      "name": "signalum",
+      "display": "Signalum",
+      "kind": "other",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/signalum",
+          "c:ores/signalum"
+        ],
+        "raw": [
+          "forge:raw_materials/signalum",
+          "c:raw_materials/signalum"
+        ],
+        "ingot": [
+          "forge:ingots/signalum",
+          "c:ingots/signalum"
+        ],
+        "dust": [
+          "forge:dusts/signalum",
+          "c:dusts/signalum"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/signalum",
+          "c:storage_blocks/signalum"
+        ]
+      }
+    },
+    {
+      "name": "silver",
+      "display": "Silver",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/silver",
+          "c:ores/silver"
+        ],
+        "raw": [
+          "forge:raw_materials/silver",
+          "c:raw_materials/silver"
+        ],
+        "ingot": [
+          "forge:ingots/silver",
+          "c:ingots/silver"
+        ],
+        "dust": [
+          "forge:dusts/silver",
+          "c:dusts/silver"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/silver",
+          "c:storage_blocks/silver"
+        ]
+      }
+    },
+    {
+      "name": "steel",
+      "display": "Steel",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/steel",
+          "c:ores/steel"
+        ],
+        "raw": [
+          "forge:raw_materials/steel",
+          "c:raw_materials/steel"
+        ],
+        "ingot": [
+          "forge:ingots/steel",
+          "c:ingots/steel"
+        ],
+        "dust": [
+          "forge:dusts/steel",
+          "c:dusts/steel"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/steel",
+          "c:storage_blocks/steel"
+        ]
+      }
+    },
+    {
+      "name": "sulfur",
+      "display": "Sulfur",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/sulfur",
+          "c:ores/sulfur"
+        ],
+        "gem": [
+          "forge:gems/sulfur",
+          "c:gems/sulfur"
+        ],
+        "dust": [
+          "forge:dusts/sulfur",
+          "c:dusts/sulfur"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/sulfur",
+          "c:storage_blocks/sulfur"
+        ]
+      }
+    },
+    {
+      "name": "tin",
+      "display": "Tin",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/tin",
+          "c:ores/tin"
+        ],
+        "raw": [
+          "forge:raw_materials/tin",
+          "c:raw_materials/tin"
+        ],
+        "ingot": [
+          "forge:ingots/tin",
+          "c:ingots/tin"
+        ],
+        "dust": [
+          "forge:dusts/tin",
+          "c:dusts/tin"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/tin",
+          "c:storage_blocks/tin"
+        ]
+      }
+    },
+    {
+      "name": "uranium",
+      "display": "Uranium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/uranium",
+          "c:ores/uranium"
+        ],
+        "raw": [
+          "forge:raw_materials/uranium",
+          "c:raw_materials/uranium"
+        ],
+        "ingot": [
+          "forge:ingots/uranium",
+          "c:ingots/uranium"
+        ],
+        "dust": [
+          "forge:dusts/uranium",
+          "c:dusts/uranium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/uranium",
+          "c:storage_blocks/uranium"
+        ]
+      }
+    },
+    {
+      "name": "zinc",
+      "display": "Zinc",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/zinc",
+          "c:ores/zinc"
+        ],
+        "raw": [
+          "forge:raw_materials/zinc",
+          "c:raw_materials/zinc"
+        ],
+        "ingot": [
+          "forge:ingots/zinc",
+          "c:ingots/zinc"
+        ],
+        "dust": [
+          "forge:dusts/zinc",
+          "c:dusts/zinc"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/zinc",
+          "c:storage_blocks/zinc"
+        ]
+      }
+    },
+    {
+      "name": "redstone",
+      "display": "Redstone",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/redstone",
+          "c:ores/redstone"
+        ],
+        "gem": [
+          "forge:gems/redstone",
+          "c:gems/redstone"
+        ],
+        "dust": [
+          "forge:dusts/redstone",
+          "c:dusts/redstone"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/redstone",
+          "c:storage_blocks/redstone"
+        ]
+      }
+    },
+    {
+      "name": "fluorite",
+      "display": "Fluorite",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/fluorite",
+          "c:ores/fluorite"
+        ],
+        "gem": [
+          "forge:gems/fluorite",
+          "c:gems/fluorite"
+        ],
+        "dust": [
+          "forge:dusts/fluorite",
+          "c:dusts/fluorite"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/fluorite",
+          "c:storage_blocks/fluorite"
+        ]
+      }
+    },
+    {
+      "name": "emerald",
+      "display": "Emerald",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/emerald",
+          "c:ores/emerald"
+        ],
+        "gem": [
+          "forge:gems/emerald",
+          "c:gems/emerald"
+        ],
+        "dust": [
+          "forge:dusts/emerald",
+          "c:dusts/emerald"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/emerald",
+          "c:storage_blocks/emerald"
+        ]
+      }
+    },
+    {
+      "name": "lapis_lazuli",
+      "display": "Lapis lazuli",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/lapis_lazuli",
+          "c:ores/lapis_lazuli"
+        ],
+        "gem": [
+          "forge:gems/lapis_lazuli",
+          "c:gems/lapis_lazuli"
+        ],
+        "dust": [
+          "forge:dusts/lapis_lazuli",
+          "c:dusts/lapis_lazuli"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/lapis_lazuli",
+          "c:storage_blocks/lapis_lazuli"
+        ]
+      }
+    },
+    {
+      "name": "resonating_ore",
+      "display": "Resonating ore",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/resonating_ore",
+          "c:ores/resonating_ore"
+        ],
+        "gem": [
+          "forge:gems/resonating_ore",
+          "c:gems/resonating_ore"
+        ],
+        "dust": [
+          "forge:dusts/resonating_ore",
+          "c:dusts/resonating_ore"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/resonating_ore",
+          "c:storage_blocks/resonating_ore"
+        ]
+      }
+    },
+    {
+      "name": "dimensional_shard",
+      "display": "Dimensional shard",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/dimensional_shard",
+          "c:ores/dimensional_shard"
+        ],
+        "gem": [
+          "forge:gems/dimensional_shard",
+          "c:gems/dimensional_shard"
+        ],
+        "dust": [
+          "forge:dusts/dimensional_shard",
+          "c:dusts/dimensional_shard"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/dimensional_shard",
+          "c:storage_blocks/dimensional_shard"
+        ]
+      }
+    },
+    {
+      "name": "antimony",
+      "display": "Antimony",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/antimony",
+          "c:ores/antimony"
+        ],
+        "raw": [
+          "forge:raw_materials/antimony",
+          "c:raw_materials/antimony"
+        ],
+        "ingot": [
+          "forge:ingots/antimony",
+          "c:ingots/antimony"
+        ],
+        "dust": [
+          "forge:dusts/antimony",
+          "c:dusts/antimony"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/antimony",
+          "c:storage_blocks/antimony"
+        ]
+      }
+    },
+    {
+      "name": "bauxite",
+      "display": "Bauxite",
+      "kind": "ore_alias",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "any": [
+          "forge:bauxite",
+          "c:bauxite"
+        ]
+      },
+      "alias_to": "aluminum"
+    },
+    {
+      "name": "iridium",
+      "display": "Iridium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/iridium",
+          "c:ores/iridium"
+        ],
+        "raw": [
+          "forge:raw_materials/iridium",
+          "c:raw_materials/iridium"
+        ],
+        "ingot": [
+          "forge:ingots/iridium",
+          "c:ingots/iridium"
+        ],
+        "dust": [
+          "forge:dusts/iridium",
+          "c:dusts/iridium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/iridium",
+          "c:storage_blocks/iridium"
+        ]
+      }
+    },
+    {
+      "name": "monazite",
+      "display": "Monazite",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/monazite",
+          "c:ores/monazite"
+        ],
+        "gem": [
+          "forge:gems/monazite",
+          "c:gems/monazite"
+        ],
+        "dust": [
+          "forge:dusts/monazite",
+          "c:dusts/monazite"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/monazite",
+          "c:storage_blocks/monazite"
+        ]
+      }
+    },
+    {
+      "name": "tungsten",
+      "display": "Tungsten",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/tungsten",
+          "c:ores/tungsten"
+        ],
+        "raw": [
+          "forge:raw_materials/tungsten",
+          "c:raw_materials/tungsten"
+        ],
+        "ingot": [
+          "forge:ingots/tungsten",
+          "c:ingots/tungsten"
+        ],
+        "dust": [
+          "forge:dusts/tungsten",
+          "c:dusts/tungsten"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/tungsten",
+          "c:storage_blocks/tungsten"
+        ]
+      }
+    },
+    {
+      "name": "titanium",
+      "display": "Titanium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/titanium",
+          "c:ores/titanium"
+        ],
+        "raw": [
+          "forge:raw_materials/titanium",
+          "c:raw_materials/titanium"
+        ],
+        "ingot": [
+          "forge:ingots/titanium",
+          "c:ingots/titanium"
+        ],
+        "dust": [
+          "forge:dusts/titanium",
+          "c:dusts/titanium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/titanium",
+          "c:storage_blocks/titanium"
+        ]
+      }
+    },
+    {
+      "name": "platinum",
+      "display": "Platinum",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/platinum",
+          "c:ores/platinum"
+        ],
+        "raw": [
+          "forge:raw_materials/platinum",
+          "c:raw_materials/platinum"
+        ],
+        "ingot": [
+          "forge:ingots/platinum",
+          "c:ingots/platinum"
+        ],
+        "dust": [
+          "forge:dusts/platinum",
+          "c:dusts/platinum"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/platinum",
+          "c:storage_blocks/platinum"
+        ]
+      }
+    },
+    {
+      "name": "stainless_steel",
+      "display": "Stainless steel",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "ore": [
+          "forge:ores/stainless_steel",
+          "c:ores/stainless_steel"
+        ],
+        "raw": [
+          "forge:raw_materials/stainless_steel",
+          "c:raw_materials/stainless_steel"
+        ],
+        "ingot": [
+          "forge:ingots/stainless_steel",
+          "c:ingots/stainless_steel"
+        ],
+        "dust": [
+          "forge:dusts/stainless_steel",
+          "c:dusts/stainless_steel"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/stainless_steel",
+          "c:storage_blocks/stainless_steel"
+        ]
+      }
+    },
+    {
+      "name": "plutonium",
+      "display": "Plutonium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "ore": [
+          "forge:ores/plutonium",
+          "c:ores/plutonium"
+        ],
+        "raw": [
+          "forge:raw_materials/plutonium",
+          "c:raw_materials/plutonium"
+        ],
+        "ingot": [
+          "forge:ingots/plutonium",
+          "c:ingots/plutonium"
+        ],
+        "dust": [
+          "forge:dusts/plutonium",
+          "c:dusts/plutonium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/plutonium",
+          "c:storage_blocks/plutonium"
+        ]
+      }
+    },
+    {
+      "name": "chromium",
+      "display": "Chromium",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/chromium",
+          "c:ores/chromium"
+        ],
+        "raw": [
+          "forge:raw_materials/chromium",
+          "c:raw_materials/chromium"
+        ],
+        "ingot": [
+          "forge:ingots/chromium",
+          "c:ingots/chromium"
+        ],
+        "dust": [
+          "forge:dusts/chromium",
+          "c:dusts/chromium"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/chromium",
+          "c:storage_blocks/chromium"
+        ]
+      }
+    },
+    {
+      "name": "silicon",
+      "display": "Silicon",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/silicon",
+          "c:ores/silicon"
+        ],
+        "gem": [
+          "forge:gems/silicon",
+          "c:gems/silicon"
+        ],
+        "dust": [
+          "forge:dusts/silicon",
+          "c:dusts/silicon"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/silicon",
+          "c:storage_blocks/silicon"
+        ]
+      }
+    },
+    {
+      "name": "refined_obsidian",
+      "display": "Refined Obsidian",
+      "kind": "metal",
+      "unify": true,
+      "generate_ore": false,
+      "variants": {},
+      "tags": {
+        "ore": [
+          "forge:ores/refined_obsidian",
+          "c:ores/refined_obsidian"
+        ],
+        "raw": [
+          "forge:raw_materials/refined_obsidian",
+          "c:raw_materials/refined_obsidian"
+        ],
+        "ingot": [
+          "forge:ingots/refined_obsidian",
+          "c:ingots/refined_obsidian"
+        ],
+        "dust": [
+          "forge:dusts/refined_obsidian",
+          "c:dusts/refined_obsidian"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/refined_obsidian",
+          "c:storage_blocks/refined_obsidian"
+        ]
+      }
+    },
+    {
+      "name": "sapphire",
+      "display": "Sapphire",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/sapphire",
+          "c:ores/sapphire"
+        ],
+        "gem": [
+          "forge:gems/sapphire",
+          "c:gems/sapphire"
+        ],
+        "dust": [
+          "forge:dusts/sapphire",
+          "c:dusts/sapphire"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/sapphire",
+          "c:storage_blocks/sapphire"
+        ]
+      }
+    },
+    {
+      "name": "ruby",
+      "display": "Ruby",
+      "kind": "gem",
+      "unify": true,
+      "generate_ore": true,
+      "variants": {
+        "stone": true,
+        "deepslate": true
+      },
+      "tags": {
+        "ore": [
+          "forge:ores/ruby",
+          "c:ores/ruby"
+        ],
+        "gem": [
+          "forge:gems/ruby",
+          "c:gems/ruby"
+        ],
+        "dust": [
+          "forge:dusts/ruby",
+          "c:dusts/ruby"
+        ],
+        "storage_block": [
+          "forge:storage_blocks/ruby",
+          "c:storage_blocks/ruby"
+        ]
+      }
+    }
+  ],
+  "compression": {
+    "enable_for_stone_tags": [
+      "minecraft:base_stone_overworld",
+      "minecraft:stone_ore_replaceables"
+    ],
+    "enable_for_items_tags": [
+      "forge:ingots",
+      "forge:gems",
+      "forge:nuggets",
+      "forge:raw_materials",
+      "forge:storage_blocks"
+    ],
+    "max_tier": 9,
+    "reverse_recipes": true
+  },
+  "worldgen": {
+    "remove_other_mod_ores": true,
+    "vein_defaults": {
+      "size": 9,
+      "count": 16,
+      "height_min": -32,
+      "height_max": 64,
+      "triangle": true
+    }
+  }
+}
