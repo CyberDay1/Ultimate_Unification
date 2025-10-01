@@ -1,32 +1,38 @@
 #!/usr/bin/env bash
 set -euo pipefail
-JAR_PATH="gradle/wrapper/gradle-wrapper.jar"
-WRAPPER_VER="8.14.3"
-SRC_MAVEN="https://repo1.maven.org/maven2/org/gradle/gradle-wrapper/${WRAPPER_VER}/gradle-wrapper-${WRAPPER_VER}.jar"
-DIST_ZIP="https://services.gradle.org/distributions/gradle-${WRAPPER_VER}-bin.zip"
-mkdir -p "$(dirname "$JAR_PATH")"
-if [ ! -f "$JAR_PATH" ]; then
-  echo "Downloading Gradle wrapper jar ${WRAPPER_VER}..."
-  TMP_FILE=$(mktemp)
-  if curl -sSfL "$SRC_MAVEN" -o "$TMP_FILE"; then
-    mv "$TMP_FILE" "$JAR_PATH"
+WRAP_JAR="gradle/wrapper/gradle-wrapper.jar"
+GRADLE_VER="8.14.3"
+DIST_URL="https://services.gradle.org/distributions/gradle-${GRADLE_VER}-bin.zip"
+ZIP_PATH=".gradle/tmp/gradle-${GRADLE_VER}-bin.zip"
+
+mkdir -p "$(dirname "$WRAP_JAR")" ".gradle/tmp"
+
+if [ ! -f "$WRAP_JAR" ]; then
+  echo "Wrapper jar missing. Downloading Gradle ${GRADLE_VER} distribution..."
+  curl -sSfL "$DIST_URL" -o "$ZIP_PATH"
+  echo "Extracting wrapper jar..."
+  if command -v unzip >/dev/null 2>&1; then
+    tmp_dir=$(mktemp -d)
+    unzip -p "$ZIP_PATH" "gradle-${GRADLE_VER}/lib/plugins/gradle-wrapper-main-${GRADLE_VER}.jar" > "$tmp_dir/gradle-wrapper-main.jar"
+    unzip -p "$tmp_dir/gradle-wrapper-main.jar" gradle-wrapper.jar > "$WRAP_JAR"
+    rm -rf "$tmp_dir"
   else
-    rm -f "$TMP_FILE"
-    echo "Primary download failed, generating wrapper jar from distribution..."
-    TMP_DIR=$(mktemp -d)
-    trap 'rm -rf "$TMP_DIR"' EXIT
-    curl -sSfL "$DIST_ZIP" -o "$TMP_DIR/gradle.zip"
-    unzip -q "$TMP_DIR/gradle.zip" -d "$TMP_DIR"
-    BOOT_DIR="$TMP_DIR/bootstrap"
-    mkdir -p "$BOOT_DIR"
-    cat <<'SETTINGS' > "$BOOT_DIR/settings.gradle"
-rootProject.name = "bootstrap"
-SETTINGS
-    "$TMP_DIR/gradle-${WRAPPER_VER}/bin/gradle" wrapper --gradle-version "$WRAPPER_VER" --no-daemon --console=plain --project-dir "$BOOT_DIR" >/dev/null
-    cp "$BOOT_DIR/gradle/wrapper/gradle-wrapper.jar" "$JAR_PATH"
-    rm -rf "$TMP_DIR"
-    trap - EXIT
+    python3 - "$ZIP_PATH" "$WRAP_JAR" "$GRADLE_VER" << 'PY'
+import io
+import shutil
+import sys
+import zipfile
+zip_path, out_path, ver = sys.argv[1:4]
+with zipfile.ZipFile(zip_path) as dist_zip:
+    inner_name = f"gradle-{ver}/lib/plugins/gradle-wrapper-main-{ver}.jar"
+    with dist_zip.open(inner_name) as inner_stream:
+        inner_bytes = io.BytesIO(inner_stream.read())
+    with zipfile.ZipFile(inner_bytes) as wrapper_main:
+        with wrapper_main.open("gradle-wrapper.jar") as wrapper_stream, open(out_path, "wb") as dest:
+            shutil.copyfileobj(wrapper_stream, dest)
+PY
   fi
-  echo "Downloaded to $JAR_PATH"
 fi
+
 chmod +x ./gradlew || true
+echo "Wrapper ready."
