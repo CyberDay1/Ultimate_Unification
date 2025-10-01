@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:graphite_compressed_item_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:graphite_gem",
+    "count": 9
+  },
+  "category": "misc"
+}

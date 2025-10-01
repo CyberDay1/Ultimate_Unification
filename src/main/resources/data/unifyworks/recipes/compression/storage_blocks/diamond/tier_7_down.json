@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:diamond_compressed_block_x7"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:diamond_compressed_block_x6",
+    "count": 9
+  },
+  "category": "misc"
+}

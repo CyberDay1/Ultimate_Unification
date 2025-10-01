@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:uranium_compressed_block_x4"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:uranium_compressed_block_x3",
+    "count": 9
+  },
+  "category": "misc"
+}

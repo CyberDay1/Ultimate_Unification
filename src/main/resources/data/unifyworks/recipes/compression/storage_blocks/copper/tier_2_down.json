@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:copper_compressed_block_x2"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:copper_compressed_block_x1",
+    "count": 9
+  },
+  "category": "misc"
+}

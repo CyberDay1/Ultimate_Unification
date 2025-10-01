@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:aluminum_compressed_item_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:aluminum_ingot",
+    "count": 9
+  },
+  "category": "misc"
+}

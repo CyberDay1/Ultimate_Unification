@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:platinum_compressed_block_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:platinum_block",
+    "count": 9
+  },
+  "category": "misc"
+}

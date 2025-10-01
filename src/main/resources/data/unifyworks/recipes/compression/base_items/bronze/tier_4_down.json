@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:bronze_compressed_item_x4"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:bronze_compressed_item_x3",
+    "count": 9
+  },
+  "category": "misc"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:resonating_ore_compressed_item_x6"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:resonating_ore_compressed_item_x5",
+    "count": 9
+  },
+  "category": "misc"
+}

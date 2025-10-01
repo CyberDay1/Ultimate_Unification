@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:fluorite_compressed_block_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:fluorite_block",
+    "count": 9
+  },
+  "category": "misc"
+}

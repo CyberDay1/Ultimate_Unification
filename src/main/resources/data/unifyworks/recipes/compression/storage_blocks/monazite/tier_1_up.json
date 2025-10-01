@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:monazite_block"
+    }
+  },
+  "result": {
+    "item": "unifyworks:monazite_compressed_block_x1"
+  },
+  "category": "misc"
+}

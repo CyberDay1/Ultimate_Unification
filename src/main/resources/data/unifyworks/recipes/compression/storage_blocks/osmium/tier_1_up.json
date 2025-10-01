@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:osmium_block"
+    }
+  },
+  "result": {
+    "item": "unifyworks:osmium_compressed_block_x1"
+  },
+  "category": "misc"
+}

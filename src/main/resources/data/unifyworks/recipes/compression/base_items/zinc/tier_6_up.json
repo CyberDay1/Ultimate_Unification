@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:zinc_compressed_item_x5"
+    }
+  },
+  "result": {
+    "item": "unifyworks:zinc_compressed_item_x6"
+  },
+  "category": "misc"
+}

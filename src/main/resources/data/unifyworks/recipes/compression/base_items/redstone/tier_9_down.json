@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:redstone_compressed_item_x9"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:redstone_compressed_item_x8",
+    "count": 9
+  },
+  "category": "misc"
+}

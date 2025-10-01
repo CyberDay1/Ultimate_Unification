@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:bronze_compressed_block_x3"
+    }
+  },
+  "result": {
+    "item": "unifyworks:bronze_compressed_block_x4"
+  },
+  "category": "misc"
+}

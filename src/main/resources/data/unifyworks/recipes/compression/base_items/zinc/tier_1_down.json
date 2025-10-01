@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:zinc_compressed_item_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:zinc_ingot",
+    "count": 9
+  },
+  "category": "misc"
+}

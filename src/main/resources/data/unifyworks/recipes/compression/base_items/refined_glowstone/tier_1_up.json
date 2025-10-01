@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:refined_glowstone_ingot"
+    }
+  },
+  "result": {
+    "item": "unifyworks:refined_glowstone_compressed_item_x1"
+  },
+  "category": "misc"
+}
