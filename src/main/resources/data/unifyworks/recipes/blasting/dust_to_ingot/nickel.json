@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/nickel"
+  },
+  "result": "unifyworks:nickel_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

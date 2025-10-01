@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/chromium"
+  },
+  "result": "unifyworks:chromium_ingot",
+  "experience": 0.35,
+  "cookingtime": 200
+}

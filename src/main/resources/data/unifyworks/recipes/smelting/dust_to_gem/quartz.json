@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/quartz"
+  },
+  "result": "unifyworks:quartz_gem",
+  "experience": 0.15,
+  "cookingtime": 200
+}

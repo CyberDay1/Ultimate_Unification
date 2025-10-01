@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/plutonium"
+  },
+  "result": "unifyworks:plutonium_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

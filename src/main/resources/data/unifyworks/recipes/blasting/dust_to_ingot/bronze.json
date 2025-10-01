@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/bronze"
+  },
+  "result": "unifyworks:bronze_ingot",
+  "experience": 0.35,
+  "cookingtime": 100
+}

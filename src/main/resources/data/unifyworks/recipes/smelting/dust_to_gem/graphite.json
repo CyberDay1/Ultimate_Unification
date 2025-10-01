@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/graphite"
+  },
+  "result": "unifyworks:graphite_gem",
+  "experience": 0.15,
+  "cookingtime": 200
+}
