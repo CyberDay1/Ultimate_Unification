@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:sapphire_block"
+    },
+    "title": {
+      "text": "Unified sapphire Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified sapphire storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:sapphire_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

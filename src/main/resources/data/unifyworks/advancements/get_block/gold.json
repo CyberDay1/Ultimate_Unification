@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:gold_block"
+    },
+    "title": {
+      "text": "Unified gold Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified gold storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:gold_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

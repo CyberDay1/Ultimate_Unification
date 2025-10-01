@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:uranium_block"
+    },
+    "title": {
+      "text": "Unified uranium Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified uranium storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:uranium_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

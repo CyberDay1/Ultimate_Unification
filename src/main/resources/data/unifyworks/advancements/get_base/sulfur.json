@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:sulfur_gem"
+    },
+    "title": {
+      "text": "Unified sulfur"
+    },
+    "description": {
+      "text": "Obtain the unified sulfur base item"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:sulfur_gem"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

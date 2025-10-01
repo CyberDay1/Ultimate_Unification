@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:refined_glowstone_ingot"
+    },
+    "title": {
+      "text": "Unified refined_glowstone"
+    },
+    "description": {
+      "text": "Obtain the unified refined_glowstone base item"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:refined_glowstone_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:iridium_ingot"
+    },
+    "title": {
+      "text": "Unified iridium"
+    },
+    "description": {
+      "text": "Obtain the unified iridium base item"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:iridium_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

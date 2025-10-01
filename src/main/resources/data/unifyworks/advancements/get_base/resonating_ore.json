@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:resonating_ore_gem"
+    },
+    "title": {
+      "text": "Unified resonating_ore"
+    },
+    "description": {
+      "text": "Obtain the unified resonating_ore base item"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:resonating_ore_gem"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
