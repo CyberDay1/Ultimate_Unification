@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unifyworks:block/ore/dimensional_shard_ore"
+    }
+  }
+}
