@@ -17,5 +17,5 @@ out/
 Thumbs.db
 # Exclude wrapper binary from VCS
 gradle/wrapper/gradle-wrapper.jar
-# Ensure wrapper binary stays untracked
-gradle/wrapper/gradle-wrapper.jar
+# Local offline Gradle cache
+.gradle/local-gradle/
