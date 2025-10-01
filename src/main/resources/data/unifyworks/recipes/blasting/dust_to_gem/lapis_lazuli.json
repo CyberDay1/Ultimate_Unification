@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/lapis_lazuli"
+  },
+  "result": "unifyworks:lapis_lazuli_gem",
+  "experience": 0.15,
+  "cookingtime": 100
+}

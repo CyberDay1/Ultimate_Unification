@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/silicon"
+  },
+  "result": "unifyworks:silicon_gem",
+  "experience": 0.15,
+  "cookingtime": 100
+}

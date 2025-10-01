@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/dimensional_shard"
+  },
+  "result": "unifyworks:dimensional_shard_gem",
+  "experience": 0.15,
+  "cookingtime": 200
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/tungsten"
+  },
+  "result": "unifyworks:tungsten_ingot",
+  "experience": 0.35,
+  "cookingtime": 200
+}

@@ -2,6 +2,7 @@ package com.unifyworks;
 
 import com.unifyworks.data.MaterialsIndex;
 import com.unifyworks.datagen.UWDataGenBootstrap;
+import com.unifyworks.loot.LootHooks;
 import com.unifyworks.registry.UWBlocks;
 import com.unifyworks.registry.UWItems;
 import net.neoforged.bus.api.IEventBus;
@@ -19,6 +20,7 @@ public class UnifyWorks {
 
         UWItems.ITEMS.register(modBus);
         UWBlocks.BLOCKS.register(modBus);
+        LootHooks.init(modBus);
 
         modBus.addListener(this::onCommonSetup);
         modBus.addListener(UWDataGenBootstrap::gatherData);

@@ -1,4 +1,11 @@
 package com.unifyworks.loot;
 
-// TODO: Register a Global Loot Modifier that forces metal ores to drop 'raw_*' and gem ores to drop '*_gem' with Fortune rules.
-// See: net.neoforged.neoforge.common.loot.GlobalLootModifierSerializer
+import net.neoforged.bus.api.IEventBus;
+
+public final class LootHooks {
+    private LootHooks() {}
+
+    public static void init(IEventBus modBus) {
+        UWLootSerializers.LOOT_MODIFIERS.register(modBus);
+    }
+}

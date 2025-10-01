@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/apatite"
+  },
+  "result": "unifyworks:apatite_gem",
+  "experience": 0.15,
+  "cookingtime": 200
+}

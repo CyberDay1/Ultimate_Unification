@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:raw_materials/gold"
+  },
+  "result": "unifyworks:gold_ingot",
+  "experience": 0.7,
+  "cookingtime": 200
+}

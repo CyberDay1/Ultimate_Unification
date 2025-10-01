@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/emerald"
+  },
+  "result": "unifyworks:emerald_gem",
+  "experience": 0.15,
+  "cookingtime": 100
+}

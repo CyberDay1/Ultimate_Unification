@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "tag": "forge:dusts/monazite"
+  },
+  "result": "unifyworks:monazite_gem",
+  "experience": 0.15,
+  "cookingtime": 200
+}

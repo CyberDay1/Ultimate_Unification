@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "tag": "forge:dusts/resonating_ore"
+  },
+  "result": "unifyworks:resonating_ore_gem",
+  "experience": 0.15,
+  "cookingtime": 100
+}
