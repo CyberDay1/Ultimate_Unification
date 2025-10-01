@@ -1,0 +1,8 @@
+{
+  "type": "forge:remove_features",
+  "biomes": "#minecraft:is_overworld",
+  "features": [
+    "#forge:ores"
+  ],
+  "step": "UNDERGROUND_ORES"
+}

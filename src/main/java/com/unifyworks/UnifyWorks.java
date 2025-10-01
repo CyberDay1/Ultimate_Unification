@@ -5,6 +5,7 @@ import com.unifyworks.datagen.UWDataGenBootstrap;
 import com.unifyworks.loot.LootHooks;
 import com.unifyworks.registry.UWBlocks;
 import com.unifyworks.registry.UWItems;
+import com.unifyworks.registry.UWOres;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -17,16 +18,16 @@ public class UnifyWorks {
         var snap = MaterialsIndex.loadBootstrap();
         UWItems.bootstrap(snap.metals, snap.gems);
         UWBlocks.bootstrap(snap.metals, snap.gems);
+        UWOres.bootstrap(snap);
 
         UWItems.ITEMS.register(modBus);
         UWBlocks.BLOCKS.register(modBus);
+        UWOres.BLOCKS.register(modBus);
         LootHooks.init(modBus);
 
         modBus.addListener(this::onCommonSetup);
         modBus.addListener(UWDataGenBootstrap::gatherData);
     }
 
-    private void onCommonSetup(final FMLCommonSetupEvent event) {
-        // future: recipe unifier, loot hooks, compression, worldgen wiring
-    }
+    private void onCommonSetup(final FMLCommonSetupEvent event) {}
 }
