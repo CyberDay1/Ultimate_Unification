@@ -15,6 +15,7 @@ public final class UWDataGenBootstrap {
         var blockTags = new UWBlockTagsProvider(packOutput, lookupProvider, existingFileHelper);
         generator.addProvider(event.includeServer(), blockTags);
         generator.addProvider(event.includeServer(), new UWItemTagsProvider(packOutput, lookupProvider, blockTags, existingFileHelper));
+        generator.addProvider(event.includeServer(), new UWRawTagsProvider(packOutput, lookupProvider, blockTags, existingFileHelper));
         generator.addProvider(event.includeServer(), new UWRecipeProvider(packOutput, lookupProvider));
         generator.addProvider(event.includeClient(), new UWBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeClient(), new UWItemModelProvider(packOutput, existingFileHelper));
