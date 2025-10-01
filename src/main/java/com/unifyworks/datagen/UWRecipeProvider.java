@@ -26,9 +26,15 @@ public class UWRecipeProvider extends RecipeProvider {
         var snap = MaterialsIndex.loadBootstrap();
 
         for (var m : snap.metals) {
-            Item nugget = UWItems.NUGGETS.get(m).get();
-            Item ingot = UWItems.BASE_ITEMS.get(m).get();
-            Block block = UWBlocks.STORAGE_BLOCKS.get(m).get();
+            var nuggetEntry = UWItems.NUGGETS.get(m);
+            var baseEntry = UWItems.BASE_ITEMS.get(m);
+            var blockEntry = UWBlocks.STORAGE_BLOCKS.get(m);
+            if (nuggetEntry == null || baseEntry == null || blockEntry == null) {
+                continue;
+            }
+            Item nugget = nuggetEntry.get();
+            Item ingot = baseEntry.get();
+            Block block = blockEntry.get();
 
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ingot)
                     .define('#', nugget).pattern("###").pattern("###").pattern("###")
@@ -52,9 +58,15 @@ public class UWRecipeProvider extends RecipeProvider {
         }
 
         for (var g : snap.gems) {
-            Item nugget = UWItems.NUGGETS.get(g).get();
-            Item gem = UWItems.BASE_ITEMS.get(g).get();
-            Block block = UWBlocks.STORAGE_BLOCKS.get(g).get();
+            var nuggetEntry = UWItems.NUGGETS.get(g);
+            var baseEntry = UWItems.BASE_ITEMS.get(g);
+            var blockEntry = UWBlocks.STORAGE_BLOCKS.get(g);
+            if (nuggetEntry == null || baseEntry == null || blockEntry == null) {
+                continue;
+            }
+            Item nugget = nuggetEntry.get();
+            Item gem = baseEntry.get();
+            Block block = blockEntry.get();
 
             ShapedRecipeBuilder.shaped(RecipeCategory.MISC, gem)
                     .define('#', nugget).pattern("###").pattern("###").pattern("###")
