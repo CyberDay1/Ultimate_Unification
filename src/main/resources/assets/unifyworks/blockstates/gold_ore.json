@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unifyworks:block/ore/gold_ore"
+    }
+  }
+}
