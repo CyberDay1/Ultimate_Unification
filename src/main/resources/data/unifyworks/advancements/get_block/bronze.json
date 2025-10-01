@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:bronze_block"
+    },
+    "title": {
+      "text": "Unified bronze Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified bronze storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:bronze_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

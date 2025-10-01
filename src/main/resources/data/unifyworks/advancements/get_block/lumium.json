@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:lumium_block"
+    },
+    "title": {
+      "text": "Unified lumium Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified lumium storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:lumium_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:antimony_ingot"
+    },
+    "title": {
+      "text": "Unified antimony"
+    },
+    "description": {
+      "text": "Obtain the unified antimony base item"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_base": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:antimony_ingot"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

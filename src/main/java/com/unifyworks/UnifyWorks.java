@@ -4,6 +4,7 @@ import com.unifyworks.data.MaterialsIndex;
 import com.unifyworks.datagen.UWDataGenBootstrap;
 import com.unifyworks.loot.LootHooks;
 import com.unifyworks.registry.UWBlocks;
+import com.unifyworks.registry.UWCreativeTab;
 import com.unifyworks.registry.UWItems;
 import com.unifyworks.registry.UWOres;
 import com.unifyworks.registry.UWOreItems;
@@ -26,6 +27,7 @@ public class UnifyWorks {
         UWBlocks.BLOCKS.register(modBus);
         UWOres.BLOCKS.register(modBus);
         UWOreItems.ITEMS.register(modBus);
+        UWCreativeTab.TABS.register(modBus);
         LootHooks.init(modBus);
 
         modBus.addListener(this::onCommonSetup);

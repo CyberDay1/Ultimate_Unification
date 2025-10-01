@@ -1,0 +1,31 @@
+{
+  "display": {
+    "icon": {
+      "item": "unifyworks:lapis_lazuli_block"
+    },
+    "title": {
+      "text": "Unified lapis_lazuli Block"
+    },
+    "description": {
+      "text": "Craft or obtain the unified lapis_lazuli storage block"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "has_block": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "unifyworks:lapis_lazuli_block"
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
