@@ -1,0 +1,8 @@
+.gradle/
+/build/
+/runs/
+/out/
+/.idea/
+*.iml
+gradle/wrapper/gradle-wrapper.jar
+gradle/wrapper/gradle-wrapper-shared.jar
