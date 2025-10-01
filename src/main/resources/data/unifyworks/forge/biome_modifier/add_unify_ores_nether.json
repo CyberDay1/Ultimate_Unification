@@ -1,0 +1,8 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#minecraft:is_nether",
+  "features": [
+    "unifyworks:quartz_ore_netherrack"
+  ],
+  "step": "UNDERGROUND_ORES"
+}
