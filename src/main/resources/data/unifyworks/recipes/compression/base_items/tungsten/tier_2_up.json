@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:tungsten_compressed_item_x1"
+    }
+  },
+  "result": {
+    "item": "unifyworks:tungsten_compressed_item_x2"
+  },
+  "category": "misc"
+}

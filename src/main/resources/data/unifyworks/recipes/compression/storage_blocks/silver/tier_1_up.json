@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:silver_block"
+    }
+  },
+  "result": {
+    "item": "unifyworks:silver_compressed_block_x1"
+  },
+  "category": "misc"
+}

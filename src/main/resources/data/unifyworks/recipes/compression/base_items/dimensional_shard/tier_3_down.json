@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:dimensional_shard_compressed_item_x3"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:dimensional_shard_compressed_item_x2",
+    "count": 9
+  },
+  "category": "misc"
+}

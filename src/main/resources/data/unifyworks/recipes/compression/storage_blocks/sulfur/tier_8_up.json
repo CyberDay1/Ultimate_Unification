@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:sulfur_compressed_block_x7"
+    }
+  },
+  "result": {
+    "item": "unifyworks:sulfur_compressed_block_x8"
+  },
+  "category": "misc"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:ruby_compressed_block_x8"
+    }
+  },
+  "result": {
+    "item": "unifyworks:ruby_compressed_block_x9"
+  },
+  "category": "misc"
+}

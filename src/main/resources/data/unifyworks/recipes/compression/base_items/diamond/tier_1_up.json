@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:diamond_gem"
+    }
+  },
+  "result": {
+    "item": "unifyworks:diamond_compressed_item_x1"
+  },
+  "category": "misc"
+}

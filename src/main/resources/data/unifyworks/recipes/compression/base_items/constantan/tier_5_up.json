@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:constantan_compressed_item_x4"
+    }
+  },
+  "result": {
+    "item": "unifyworks:constantan_compressed_item_x5"
+  },
+  "category": "misc"
+}

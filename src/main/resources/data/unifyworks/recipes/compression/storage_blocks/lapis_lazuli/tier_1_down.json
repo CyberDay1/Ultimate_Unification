@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:lapis_lazuli_compressed_block_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:lapis_lazuli_block",
+    "count": 9
+  },
+  "category": "misc"
+}

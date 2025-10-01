@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:tungsten_compressed_block_x3"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:tungsten_compressed_block_x2",
+    "count": 9
+  },
+  "category": "misc"
+}

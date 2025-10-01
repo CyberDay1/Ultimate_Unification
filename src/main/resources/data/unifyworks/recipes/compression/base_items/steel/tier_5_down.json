@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:steel_compressed_item_x5"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:steel_compressed_item_x4",
+    "count": 9
+  },
+  "category": "misc"
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:uranium_compressed_item_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:uranium_ingot",
+    "count": 9
+  },
+  "category": "misc"
+}

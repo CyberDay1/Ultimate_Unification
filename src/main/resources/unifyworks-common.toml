@@ -1,0 +1,7 @@
+# UnifyWorks compression configuration
+enableCompression = true
+enableBaseCompression = true      # ingots/gems -> compressed items
+enableBlockCompression = true     # storage blocks -> compressed blocks
+enableStoneCompression = true     # stone tags -> compressed blocks
+maxCompressionTier = 9
+enableReverseCompression = true

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:graphite_gem"
+    }
+  },
+  "result": {
+    "item": "unifyworks:graphite_compressed_item_x1"
+  },
+  "category": "misc"
+}

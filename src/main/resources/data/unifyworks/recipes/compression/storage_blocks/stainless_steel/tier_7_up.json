@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:stainless_steel_compressed_block_x6"
+    }
+  },
+  "result": {
+    "item": "unifyworks:stainless_steel_compressed_block_x7"
+  },
+  "category": "misc"
+}

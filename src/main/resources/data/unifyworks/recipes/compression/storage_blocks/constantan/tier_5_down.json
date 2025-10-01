@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:constantan_compressed_block_x5"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:constantan_compressed_block_x4",
+    "count": 9
+  },
+  "category": "misc"
+}

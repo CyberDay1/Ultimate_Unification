@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:quartz_compressed_item_x1"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:quartz_gem",
+    "count": 9
+  },
+  "category": "misc"
+}

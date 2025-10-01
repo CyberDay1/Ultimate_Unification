@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:iron_compressed_block_x7"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:iron_compressed_block_x6",
+    "count": 9
+  },
+  "category": "misc"
+}
