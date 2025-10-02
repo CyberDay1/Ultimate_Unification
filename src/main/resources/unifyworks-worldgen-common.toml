@@ -1,0 +1,7 @@
+[worldgen]
+enableWorldgen = true
+enableOverworldOres = true
+enableNetherOres = true
+enableEndOres = false
+sizeMultiplierPct = 100
+countMultiplierPct = 100
