@@ -5,3 +5,4 @@ enableNetherOres = true
 enableEndOres = false
 sizeMultiplierPct = 100
 countMultiplierPct = 100
+pruneNonUnifyOres = true
