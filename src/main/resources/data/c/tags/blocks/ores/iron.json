@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:iron_ore",
-    "unifyworks:deepslate_iron_ore"
+    "#unifyworks:iron_ores_self"
   ]
 }

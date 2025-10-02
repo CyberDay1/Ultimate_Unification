@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:lumium_ore",
-    "unifyworks:deepslate_lumium_ore"
+    "#unifyworks:lumium_ores_items_self"
   ]
 }

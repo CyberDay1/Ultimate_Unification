@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:graphite_ore",
-    "unifyworks:deepslate_graphite_ore"
+    "#unifyworks:graphite_ores_self"
   ]
 }

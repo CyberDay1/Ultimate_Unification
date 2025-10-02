@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:emerald_ore",
-    "unifyworks:deepslate_emerald_ore"
+    "#unifyworks:emerald_ores_self"
   ]
 }

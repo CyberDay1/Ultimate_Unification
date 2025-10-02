@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_monazite"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_monazite",
+    "unifyworks:monazite_nugget"
+  ]
+}

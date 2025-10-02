@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_resonating_ore"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_resonating_ore",
+    "unifyworks:resonating_ore_nugget"
+  ]
+}

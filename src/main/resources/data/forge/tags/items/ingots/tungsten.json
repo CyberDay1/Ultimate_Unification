@@ -1,1 +1,6 @@
-{"replace":false,"values":["unifyworks:tungsten_ingot"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:tungsten_ingot"
+  ]
+}

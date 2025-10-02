@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_invar"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_invar",
+    "unifyworks:invar_nugget"
+  ]
+}

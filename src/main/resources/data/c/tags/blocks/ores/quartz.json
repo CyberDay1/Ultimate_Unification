@@ -1,6 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:netherrack_quartz_ore"
+    "#unifyworks:quartz_ores_self"
   ]
 }

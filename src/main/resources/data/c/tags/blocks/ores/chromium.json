@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:chromium_ore",
-    "unifyworks:deepslate_chromium_ore"
+    "#unifyworks:chromium_ores_self"
   ]
 }

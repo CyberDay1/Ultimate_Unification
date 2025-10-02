@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:gold_ore",
-    "unifyworks:deepslate_gold_ore"
+    "#unifyworks:gold_ores_items_self"
   ]
 }

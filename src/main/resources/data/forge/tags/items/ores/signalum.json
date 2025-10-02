@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:signalum_ore",
-    "unifyworks:deepslate_signalum_ore"
+    "#unifyworks:signalum_ores_items_self"
   ]
 }

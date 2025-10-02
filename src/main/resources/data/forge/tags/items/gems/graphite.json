@@ -1,1 +1,6 @@
-{"replace":false,"values":["unifyworks:graphite_gem"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:graphite_gem"
+  ]
+}

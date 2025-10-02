@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:copper_ore",
-    "unifyworks:deepslate_copper_ore"
+    "#unifyworks:copper_ores_self"
   ]
 }

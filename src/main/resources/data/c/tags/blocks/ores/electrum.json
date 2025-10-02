@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:electrum_ore",
-    "unifyworks:deepslate_electrum_ore"
+    "#unifyworks:electrum_ores_self"
   ]
 }

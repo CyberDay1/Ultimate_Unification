@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:redstone_ore",
-    "unifyworks:deepslate_redstone_ore"
+    "#unifyworks:redstone_ores_self"
   ]
 }

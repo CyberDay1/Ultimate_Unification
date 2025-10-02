@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_netherite"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_netherite",
+    "unifyworks:netherite_nugget"
+  ]
+}

@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nickel_ore",
-    "unifyworks:deepslate_nickel_ore"
+    "#unifyworks:nickel_ores_self"
   ]
 }

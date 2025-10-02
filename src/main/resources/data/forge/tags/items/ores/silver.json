@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:silver_ore",
-    "unifyworks:deepslate_silver_ore"
+    "#unifyworks:silver_ores_items_self"
   ]
 }
