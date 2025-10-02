@@ -12,7 +12,8 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import net.neoforged.neoforge.registries.RegistryObject;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class UWCompressed {
     public static final DeferredRegister<Item>  ITEMS  = DeferredRegister.create(NeoForgeRegistries.ITEMS,  UnifyWorks.MODID);

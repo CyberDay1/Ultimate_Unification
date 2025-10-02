@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:granite_compressed_block_x2"
+    }
+  },
+  "result": {
+    "item": "unifyworks:granite_compressed_block_x3"
+  },
+  "category": "misc"
+}

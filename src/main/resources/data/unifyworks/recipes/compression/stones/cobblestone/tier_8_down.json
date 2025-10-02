@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:cobblestone_compressed_block_x8"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:cobblestone_compressed_block_x7",
+    "count": 9
+  },
+  "category": "misc"
+}

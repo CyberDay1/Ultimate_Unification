@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "stones": [
+    { "name": "stone",       "source_block": "minecraft:stone",       "display": "Stone" },
+    { "name": "cobblestone", "source_block": "minecraft:cobblestone", "display": "Cobblestone" },
+    { "name": "granite",     "source_block": "minecraft:granite",     "display": "Granite" },
+    { "name": "diorite",     "source_block": "minecraft:diorite",     "display": "Diorite" },
+    { "name": "andesite",    "source_block": "minecraft:andesite",    "display": "Andesite" },
+    { "name": "deepslate",   "source_block": "minecraft:deepslate",   "display": "Deepslate" },
+    { "name": "blackstone",  "source_block": "minecraft:blackstone",  "display": "Blackstone" },
+    { "name": "basalt",      "source_block": "minecraft:basalt",      "display": "Basalt" },
+    { "name": "end_stone",   "source_block": "minecraft:end_stone",   "display": "End Stone" },
+    { "name": "netherrack",  "source_block": "minecraft:netherrack",  "display": "Netherrack" }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "unifyworks:end_stone_compressed_block_x1",
+    "unifyworks:end_stone_compressed_block_x2",
+    "unifyworks:end_stone_compressed_block_x3",
+    "unifyworks:end_stone_compressed_block_x4",
+    "unifyworks:end_stone_compressed_block_x5",
+    "unifyworks:end_stone_compressed_block_x6",
+    "unifyworks:end_stone_compressed_block_x7",
+    "unifyworks:end_stone_compressed_block_x8",
+    "unifyworks:end_stone_compressed_block_x9"
+  ]
+}
