@@ -1,0 +1,2 @@
+This patch makes `./gradlew --offline <task>` and `UNIFY_OFFLINE=1 ./gradlew <task>`
+use the local offline Gradle instead of the wrapper. Normal online usage is unchanged.
