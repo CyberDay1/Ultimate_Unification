@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "UnifyWorks materials.json (v3)",
+  "type": "object",
+  "required": ["version", "materials"],
+  "properties": {
+    "version": { "const": 3 },
+    "materials": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "kind", "unify"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "display": { "type": "string" },
+          "kind": { "enum": ["metal", "gem", "stone", "other", "ore_alias"] },
+          "unify": { "type": "boolean" },
+          "generate_ore": { "type": "boolean" },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+            "uniqueItems": true
+          },
+          "alias_to": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "provide_nugget": { "type": "boolean" },
+          "provide_storage_block": { "type": "boolean" },
+          "variants": {
+            "type": "object",
+            "properties": {
+              "stone": { "type": "boolean" },
+              "deepslate": { "type": "boolean" },
+              "netherrack": { "type": "boolean" }
+            },
+            "additionalProperties": true
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"
+              },
+              "uniqueItems": true
+            }
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "compression": { "type": "object" },
+    "worldgen": { "type": "object" }
+  },
+  "additionalProperties": true
+}
