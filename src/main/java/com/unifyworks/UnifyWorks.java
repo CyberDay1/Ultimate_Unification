@@ -44,7 +44,7 @@ public class UnifyWorks {
         NeoForge.EVENT_BUS.addListener(UWCommands::register);
 
         UWItems.bootstrap(snap.metals, snap.gems);
-        UWBlocks.bootstrap(snap.metals, snap.gems);
+        UWBlocks.bootstrap(snap);
         UWOres.bootstrap(snap);
         UWOreItems.bootstrap();
         if (UWConfig.compressionEnabled()) {

@@ -21,25 +21,29 @@ public final class UWOres {
     public static final Map<String, RegistryObject<Block>> NETHERRACK = new HashMap<>(); // e.g., quartz
 
     public static void bootstrap(MaterialsIndex.Snapshot snap) {
-        BlockBehaviour.Properties stoneProps = BlockBehaviour.Properties.of()
-                .mapColor(MapColor.STONE).strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.STONE);
-        BlockBehaviour.Properties deepslateProps = BlockBehaviour.Properties.of()
-                .mapColor(MapColor.DEEPSLATE).strength(4.5F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE);
-        BlockBehaviour.Properties netherProps = BlockBehaviour.Properties.of()
-                .mapColor(MapColor.NETHER).strength(3.0F, 3.0F).requiresCorrectToolForDrops().sound(SoundType.NETHER_BRICKS);
-
         for (MaterialsIndex.OreEntry ore : snap.ores) {
             String name = ore.name();
+            MaterialsIndex.MiningSpec mining = snap.miningFor(name);
             if (ore.stone()) {
-                STONE.put(name, BLOCKS.register(name + "_ore", () -> new Block(stoneProps)));
+                STONE.put(name, BLOCKS.register(name + "_ore", () -> new Block(orePropsFor(mining, MapColor.STONE, SoundType.STONE, 1.0F))));
             }
             if (ore.deepslate()) {
-                DEEPSLATE.put(name, BLOCKS.register("deepslate_" + name + "_ore", () -> new Block(deepslateProps)));
+                DEEPSLATE.put(name, BLOCKS.register("deepslate_" + name + "_ore", () -> new Block(orePropsFor(mining, MapColor.DEEPSLATE, SoundType.DEEPSLATE, 1.5F))));
             }
             if (ore.netherrack()) {
-                NETHERRACK.put(name, BLOCKS.register("netherrack_" + name + "_ore", () -> new Block(netherProps)));
+                NETHERRACK.put(name, BLOCKS.register("netherrack_" + name + "_ore", () -> new Block(orePropsFor(mining, MapColor.NETHER, SoundType.NETHER_BRICKS, 1.0F))));
             }
         }
+    }
+
+    private static BlockBehaviour.Properties orePropsFor(MaterialsIndex.MiningSpec mining, MapColor color, SoundType sound, float multiplier) {
+        float hardness = mining.oreHardness() * multiplier;
+        float resistance = hardness + 3.0F;
+        return BlockBehaviour.Properties.of()
+                .mapColor(color)
+                .strength(hardness, resistance)
+                .requiresCorrectToolForDrops()
+                .sound(sound);
     }
 
     private UWOres() {}
