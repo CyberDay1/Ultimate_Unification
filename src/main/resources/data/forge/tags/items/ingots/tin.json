@@ -1,1 +1,6 @@
-{"replace":false,"values":["unifyworks:tin_ingot"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:tin_ingot"
+  ]
+}

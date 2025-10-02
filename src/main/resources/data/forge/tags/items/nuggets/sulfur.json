@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_sulfur"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_sulfur",
+    "unifyworks:sulfur_nugget"
+  ]
+}

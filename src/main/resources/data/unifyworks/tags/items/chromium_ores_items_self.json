@@ -1,0 +1,7 @@
+{
+  "replace": false,
+  "values": [
+    "unifyworks:chromium_ore",
+    "unifyworks:deepslate_chromium_ore"
+  ]
+}

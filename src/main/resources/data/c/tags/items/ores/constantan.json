@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:constantan_ore",
-    "unifyworks:deepslate_constantan_ore"
+    "#unifyworks:constantan_ores_items_self"
   ]
 }

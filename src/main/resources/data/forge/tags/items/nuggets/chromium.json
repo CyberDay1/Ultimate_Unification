@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_chromium"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_chromium",
+    "unifyworks:chromium_nugget"
+  ]
+}

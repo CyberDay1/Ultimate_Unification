@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_iron"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_iron",
+    "unifyworks:iron_nugget"
+  ]
+}

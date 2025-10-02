@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_lumium"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_lumium",
+    "unifyworks:lumium_nugget"
+  ]
+}

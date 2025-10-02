@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:aluminum_ore",
-    "unifyworks:deepslate_aluminum_ore"
+    "#unifyworks:aluminum_ores_self"
   ]
 }

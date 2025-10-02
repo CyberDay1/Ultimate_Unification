@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:invar_ore",
-    "unifyworks:deepslate_invar_ore"
+    "#unifyworks:invar_ores_items_self"
   ]
 }

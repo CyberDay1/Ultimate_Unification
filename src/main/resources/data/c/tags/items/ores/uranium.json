@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:uranium_ore",
-    "unifyworks:deepslate_uranium_ore"
+    "#unifyworks:uranium_ores_items_self"
   ]
 }

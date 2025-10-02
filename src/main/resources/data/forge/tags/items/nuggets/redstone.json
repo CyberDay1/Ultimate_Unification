@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_redstone"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_redstone",
+    "unifyworks:redstone_nugget"
+  ]
+}

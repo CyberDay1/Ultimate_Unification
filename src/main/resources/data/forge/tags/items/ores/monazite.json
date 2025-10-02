@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:monazite_ore",
-    "unifyworks:deepslate_monazite_ore"
+    "#unifyworks:monazite_ores_items_self"
   ]
 }

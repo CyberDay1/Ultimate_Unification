@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_ruby"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_ruby",
+    "unifyworks:ruby_nugget"
+  ]
+}

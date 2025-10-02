@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_electrum"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_electrum",
+    "unifyworks:electrum_nugget"
+  ]
+}

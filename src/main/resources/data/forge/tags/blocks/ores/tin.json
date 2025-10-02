@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:tin_ore",
-    "unifyworks:deepslate_tin_ore"
+    "#unifyworks:tin_ores_self"
   ]
 }

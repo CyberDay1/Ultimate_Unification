@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:ruby_ore",
-    "unifyworks:deepslate_ruby_ore"
+    "#unifyworks:ruby_ores_self"
   ]
 }

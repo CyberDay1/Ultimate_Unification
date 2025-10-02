@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:sulfur_ore",
-    "unifyworks:deepslate_sulfur_ore"
+    "#unifyworks:sulfur_ores_self"
   ]
 }

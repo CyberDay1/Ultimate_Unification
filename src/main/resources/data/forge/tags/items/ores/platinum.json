@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:platinum_ore",
-    "unifyworks:deepslate_platinum_ore"
+    "#unifyworks:platinum_ores_items_self"
   ]
 }

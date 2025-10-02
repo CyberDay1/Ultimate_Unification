@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:zinc_ore",
-    "unifyworks:deepslate_zinc_ore"
+    "#unifyworks:zinc_ores_self"
   ]
 }

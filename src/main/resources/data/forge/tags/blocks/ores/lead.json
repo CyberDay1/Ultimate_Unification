@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:lead_ore",
-    "unifyworks:deepslate_lead_ore"
+    "#unifyworks:lead_ores_self"
   ]
 }

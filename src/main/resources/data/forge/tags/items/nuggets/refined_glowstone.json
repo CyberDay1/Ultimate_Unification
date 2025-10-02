@@ -1,1 +1,7 @@
-{"replace":false,"values":["unifyworks:nugget_refined_glowstone"]}
+{
+  "replace": false,
+  "values": [
+    "unifyworks:nugget_refined_glowstone",
+    "unifyworks:refined_glowstone_nugget"
+  ]
+}
