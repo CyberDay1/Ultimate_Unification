@@ -91,6 +91,59 @@ public class MaterialsIndex {
                 addOreEntry(ore);
             }
         }
+
+        public Snapshot filtered(Set<String> denyMaterials, Set<String> denyStones) {
+            Set<String> blockedMaterials = denyMaterials == null ? Set.of() : denyMaterials;
+            Set<String> blockedStones = denyStones == null ? Set.of() : denyStones;
+
+            Snapshot filtered = new Snapshot();
+
+            for (MaterialEntry entry : materials.values()) {
+                if (blockedMaterials.contains(entry.name())) continue;
+                if ("stone".equals(entry.kind()) && blockedStones.contains(entry.name())) continue;
+                filtered.addMaterial(entry);
+            }
+
+            for (AliasEntry alias : oreAliases) {
+                if (blockedMaterials.contains(alias.name())) continue;
+                String aliasTo = alias.aliasTo();
+                if (aliasTo != null) {
+                    String canonical = canonicalName(aliasTo);
+                    if (canonical != null && blockedMaterials.contains(canonical)) continue;
+                    if (blockedMaterials.contains(aliasTo)) continue;
+                }
+                filtered.addOreAlias(alias);
+            }
+
+            for (OreEntry ore : ores) {
+                if (blockedMaterials.contains(ore.name())) continue;
+                filtered.addOreEntry(ore);
+            }
+
+            for (String metal : metals) {
+                if (!blockedMaterials.contains(metal)) {
+                    addUnique(filtered.metals, metal);
+                }
+            }
+            for (String gem : gems) {
+                if (!blockedMaterials.contains(gem)) {
+                    addUnique(filtered.gems, gem);
+                }
+            }
+            for (String stone : stones) {
+                if (!blockedStones.contains(stone)) {
+                    addUnique(filtered.stones, stone);
+                }
+            }
+
+            return filtered;
+        }
+
+        public Set<String> allMaterials() {
+            Set<String> all = new LinkedHashSet<>(metals);
+            all.addAll(gems);
+            return Set.copyOf(all);
+        }
     }
 
     public record OreEntry(String name, boolean stone, boolean deepslate, boolean netherrack) {}
