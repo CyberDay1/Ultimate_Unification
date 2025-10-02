@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "unifyworks:cobblestone_compressed_block_x2"
+    }
+  },
+  "result": {
+    "item": "unifyworks:cobblestone_compressed_block_x3"
+  },
+  "category": "misc"
+}

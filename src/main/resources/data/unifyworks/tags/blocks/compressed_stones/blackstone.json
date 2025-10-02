@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "unifyworks:blackstone_compressed_block_x1",
+    "unifyworks:blackstone_compressed_block_x2",
+    "unifyworks:blackstone_compressed_block_x3",
+    "unifyworks:blackstone_compressed_block_x4",
+    "unifyworks:blackstone_compressed_block_x5",
+    "unifyworks:blackstone_compressed_block_x6",
+    "unifyworks:blackstone_compressed_block_x7",
+    "unifyworks:blackstone_compressed_block_x8",
+    "unifyworks:blackstone_compressed_block_x9"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "unifyworks:netherrack_compressed_block_x6"
+    }
+  ],
+  "result": {
+    "item": "unifyworks:netherrack_compressed_block_x5",
+    "count": 9
+  },
+  "category": "misc"
+}
