@@ -1,10 +1,13 @@
 {
-  "version": 2,
+  "version": 3,
   "materials": [
     {
       "name": "aluminum",
       "display": "Aluminum",
       "kind": "metal",
+      "aliases": [
+        "aluminium"
+      ],
       "unify": true,
       "generate_ore": true,
       "variants": {
@@ -680,6 +683,9 @@
       "name": "refined_glowstone",
       "display": "Refined glowstone",
       "kind": "metal",
+      "aliases": [
+        "refined_glow_stone"
+      ],
       "unify": true,
       "generate_ore": false,
       "variants": {},
@@ -1090,6 +1096,9 @@
       "name": "lapis_lazuli",
       "display": "Lapis lazuli",
       "kind": "gem",
+      "aliases": [
+        "lapis"
+      ],
       "unify": true,
       "generate_ore": true,
       "variants": {
@@ -1195,6 +1204,9 @@
       "name": "antimony",
       "display": "Antimony",
       "kind": "metal",
+      "aliases": [
+        "stibnite"
+      ],
       "unify": true,
       "generate_ore": true,
       "variants": {
@@ -1591,6 +1603,9 @@
       "name": "refined_obsidian",
       "display": "Refined Obsidian",
       "kind": "metal",
+      "aliases": [
+        "obsidian_refined"
+      ],
       "unify": true,
       "generate_ore": false,
       "variants": {},
