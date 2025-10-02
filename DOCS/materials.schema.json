@@ -1,10 +1,10 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "UnifyWorks materials.json (v3)",
+  "title": "UnifyWorks materials.json (v4)",
   "type": "object",
   "required": ["version", "materials"],
   "properties": {
-    "version": { "const": 3 },
+    "version": { "const": 4 },
     "materials": {
       "type": "array",
       "items": {
@@ -24,6 +24,16 @@
           "alias_to": { "type": "string", "pattern": "^[a-z0-9_]+$" },
           "provide_nugget": { "type": "boolean" },
           "provide_storage_block": { "type": "boolean" },
+          "mining": {
+            "type": "object",
+            "properties": {
+              "ore_level": { "enum": ["stone", "iron", "diamond", "netherite"] },
+              "block_level": { "enum": ["stone", "iron", "diamond", "netherite"] },
+              "ore_hardness": { "type": "number" },
+              "block_hardness": { "type": "number" }
+            },
+            "additionalProperties": false
+          },
           "variants": {
             "type": "object",
             "properties": {

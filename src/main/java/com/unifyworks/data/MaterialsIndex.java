@@ -25,6 +25,7 @@ public class MaterialsIndex {
         private final Map<String, MaterialEntry> materials = new LinkedHashMap<>();
         private final Map<String, String> aliasToCanonical = new LinkedHashMap<>();
         private final List<AliasEntry> oreAliases = new ArrayList<>();
+        private final Map<String, MiningSpec> miningSpecs = new LinkedHashMap<>();
 
         public List<MaterialEntry> materials() {
             return List.copyOf(materials.values());
@@ -78,6 +79,7 @@ public class MaterialsIndex {
             for (AliasEntry alias : other.oreAliases) {
                 addOreAlias(alias);
             }
+            miningSpecs.putAll(other.miningSpecs);
             for (String metal : other.metals) {
                 addUnique(metals, metal);
             }
@@ -102,6 +104,7 @@ public class MaterialsIndex {
                 if (blockedMaterials.contains(entry.name())) continue;
                 if ("stone".equals(entry.kind()) && blockedStones.contains(entry.name())) continue;
                 filtered.addMaterial(entry);
+                filtered.addMining(entry.name(), miningFor(entry.name()));
             }
 
             for (AliasEntry alias : oreAliases) {
@@ -143,6 +146,25 @@ public class MaterialsIndex {
             Set<String> all = new LinkedHashSet<>(metals);
             all.addAll(gems);
             return Set.copyOf(all);
+        }
+
+        public MiningSpec miningFor(String name) {
+            if (name == null || name.isEmpty()) {
+                return MiningSpec.DEFAULT;
+            }
+            String canonical = canonicalName(name);
+            if (canonical != null) {
+                MiningSpec spec = miningSpecs.get(canonical);
+                if (spec != null) {
+                    return spec;
+                }
+            }
+            MiningSpec direct = miningSpecs.get(name);
+            return direct != null ? direct : MiningSpec.DEFAULT;
+        }
+
+        void addMining(String name, MiningSpec spec) {
+            miningSpecs.put(name, spec == null ? MiningSpec.DEFAULT : spec);
         }
     }
 
@@ -204,6 +226,7 @@ public class MaterialsIndex {
         List<String> aliases = readStringList(material, "aliases");
         List<ResourceLocation> oreTags = readTagList(material, "ore");
         snap.addMaterial(new MaterialEntry(name, kind, unify, generateOre, aliases, oreTags));
+        snap.addMining(name, readMiningSpec(material));
 
         boolean provideNugget = material.has("provide_nugget") && material.get("provide_nugget").getAsBoolean();
         boolean provideStorageBlock = material.has("provide_storage_block") && material.get("provide_storage_block").getAsBoolean();
@@ -225,6 +248,82 @@ public class MaterialsIndex {
         boolean netherVariant = variantEnabled(variants, "netherrack");
         if (unify && (stoneVariant || deepslateVariant || netherVariant)) {
             snap.addOreEntry(new OreEntry(name, stoneVariant, deepslateVariant, netherVariant));
+        }
+    }
+
+    public static final class MiningSpec {
+        public static final MiningSpec DEFAULT = new MiningSpec("iron", "stone", 3.0f, 5.0f);
+
+        private final String oreLevel;
+        private final String blockLevel;
+        private final float oreHardness;
+        private final float blockHardness;
+
+        public MiningSpec(String oreLevel, String blockLevel, float oreHardness, float blockHardness) {
+            this.oreLevel = oreLevel;
+            this.blockLevel = blockLevel;
+            this.oreHardness = oreHardness;
+            this.blockHardness = blockHardness;
+        }
+
+        public String oreLevel() {
+            return oreLevel;
+        }
+
+        public String blockLevel() {
+            return blockLevel;
+        }
+
+        public float oreHardness() {
+            return oreHardness;
+        }
+
+        public float blockHardness() {
+            return blockHardness;
+        }
+    }
+
+    private static final Set<String> TOOL_LEVELS = Set.of("stone", "iron", "diamond", "netherite");
+
+    private static MiningSpec readMiningSpec(JsonObject material) {
+        JsonObject mining = material.has("mining") && material.get("mining").isJsonObject()
+                ? material.getAsJsonObject("mining") : null;
+
+        if (mining == null) {
+            return MiningSpec.DEFAULT;
+        }
+
+        String oreLevel = parseToolLevel(mining, "ore_level", MiningSpec.DEFAULT.oreLevel());
+        String blockLevel = parseToolLevel(mining, "block_level", MiningSpec.DEFAULT.blockLevel());
+        float oreHardness = parseFloat(mining, "ore_hardness", MiningSpec.DEFAULT.oreHardness());
+        float blockHardness = parseFloat(mining, "block_hardness", MiningSpec.DEFAULT.blockHardness());
+        return new MiningSpec(oreLevel, blockLevel, oreHardness, blockHardness);
+    }
+
+    private static String parseToolLevel(JsonObject mining, String key, String fallback) {
+        if (!mining.has(key)) {
+            return fallback;
+        }
+        JsonElement element = mining.get(key);
+        if (!element.isJsonPrimitive() || !element.getAsJsonPrimitive().isString()) {
+            return fallback;
+        }
+        String value = element.getAsString();
+        return TOOL_LEVELS.contains(value) ? value : fallback;
+    }
+
+    private static float parseFloat(JsonObject obj, String key, float fallback) {
+        if (!obj.has(key)) {
+            return fallback;
+        }
+        JsonElement element = obj.get(key);
+        if (!element.isJsonPrimitive() || !element.getAsJsonPrimitive().isNumber()) {
+            return fallback;
+        }
+        try {
+            return element.getAsFloat();
+        } catch (NumberFormatException ex) {
+            return fallback;
         }
     }
 
