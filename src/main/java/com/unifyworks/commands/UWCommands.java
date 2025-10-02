@@ -3,6 +3,7 @@ package com.unifyworks.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.unifyworks.UnifyWorks;
+import com.unifyworks.api.CanonicalAPI;
 import com.unifyworks.config.UWConfig;
 import com.unifyworks.config.UWWorldgenConfig;
 import com.unifyworks.data.MaterialsIndex;
@@ -207,6 +208,18 @@ public final class UWCommands {
 
         CanonicalFamilies.FamilyDiagnostics diag = diagnostics.get();
         sendPrefixed(src, String.format(Locale.ROOT, "Family=%s material=%s", diag.family().key(), diag.material()));
+
+        CanonicalAPI.resolve(held).ifPresent(match -> {
+            if (match.canonicalMaterialId() != null && !Objects.equals(match.canonicalMaterialId(), match.materialId())) {
+                sendPrefixed(src, "Canonical material=" + match.canonicalMaterialId());
+            }
+            if (match.hasCanonicalItem()) {
+                boolean matchesHeld = match.canonicalItem() == held.getItem();
+                sendPrefixed(src, String.format(Locale.ROOT, "Canonical item=%s matchesHeld=%s", match.canonicalItemId(), matchesHeld));
+            } else {
+                sendPrefixed(src, "Canonical item=<unresolved>");
+            }
+        });
 
         Item canonicalDrop = UnifyDataReload.resolveDrop(diag.material());
         if (canonicalDrop != null) {

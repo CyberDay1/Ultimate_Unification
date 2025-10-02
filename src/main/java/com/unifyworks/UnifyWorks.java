@@ -6,6 +6,7 @@ import com.unifyworks.config.UWConfig;
 import com.unifyworks.config.UWWorldgenConfig;
 import com.unifyworks.data.MaterialsIndex;
 import com.unifyworks.loot.LootHooks;
+import com.unifyworks.recipes.UWRecipes;
 import com.unifyworks.registry.*;
 import com.unifyworks.worldgen.UWBiomeModifiers;
 import net.neoforged.bus.api.IEventBus;
@@ -39,6 +40,7 @@ public class UnifyWorks {
             UWCompressed.BLOCKS.register(modBus);
         }
         UWCreativeTab.TABS.register(modBus);
+        UWRecipes.SERIALIZERS.register(modBus);
         LootHooks.init(modBus);
         UWBiomeModifiers.SERIALIZERS.register(modBus);
         NeoForge.EVENT_BUS.addListener(UWCommands::register);
