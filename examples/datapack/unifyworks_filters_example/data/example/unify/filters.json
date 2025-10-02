@@ -1,0 +1,1 @@
+{ "version": 1, "deny_materials": ["aluminum", "lapis_lazuli"], "deny_stones": ["andesite"], "max_compression_tier": 7 }

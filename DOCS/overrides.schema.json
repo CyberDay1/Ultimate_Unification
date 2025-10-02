@@ -1,0 +1,21 @@
+{ "$schema": "https://json-schema.org/draft/2020-12/schema", "title": "UnifyWorks overrides v1",
+  "type": "object", "required": ["version", "name"], "properties": {
+    "version": {"const": 1},
+    "name": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "provide_nugget": {"type": "boolean"},
+    "provide_storage_block": {"type": "boolean"},
+    "generate_ore": {"type": "boolean"},
+    "unify": {"type": "boolean"},
+    "aliases_add": {"type": "array", "items": {"type": "string", "pattern": "^[a-z0-9_]+$"}, "uniqueItems": true},
+    "mining": {"type": "object", "properties": {
+      "ore_level": {"enum": ["stone", "iron", "diamond", "netherite"]},
+      "block_level": {"enum": ["stone", "iron", "diamond", "netherite"]},
+      "ore_hardness": {"type": "number", "minimum": 0},
+      "block_hardness": {"type": "number", "minimum": 0}
+    }, "additionalProperties": false},
+    "variants": {"type": "object", "properties": {
+      "stone": {"type": "boolean"},
+      "deepslate": {"type": "boolean"},
+      "netherrack": {"type": "boolean"}
+    }, "additionalProperties": false}
+  }, "additionalProperties": true }
