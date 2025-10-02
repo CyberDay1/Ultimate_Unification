@@ -1,9 +1,13 @@
 package com.unifyworks;
 
+import com.unifyworks.config.UWConfig;
 import com.unifyworks.data.MaterialsIndex;
+import com.unifyworks.loot.LootHooks;
 import com.unifyworks.registry.*;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.fml.common.Mod;
+import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.neoforged.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -12,6 +16,8 @@ public class UnifyWorks {
     public static final String MODID = "unifyworks";
 
     public UnifyWorks() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, UWConfig.COMMON_SPEC);
+
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
         var snap = MaterialsIndex.loadBootstrap();
@@ -22,6 +28,7 @@ public class UnifyWorks {
         UWCompressed.ITEMS.register(modBus);
         UWCompressed.BLOCKS.register(modBus);
         UWCreativeTab.TABS.register(modBus);
+        LootHooks.init(modBus);
 
         UWItems.bootstrap(snap.metals, snap.gems);
         UWBlocks.bootstrap(snap.metals, snap.gems);

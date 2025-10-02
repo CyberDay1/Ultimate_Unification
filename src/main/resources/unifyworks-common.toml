@@ -5,3 +5,4 @@ enableBlockCompression = true     # storage blocks -> compressed blocks
 enableStoneCompression = true     # stone tags -> compressed blocks
 maxCompressionTier = 9
 enableReverseCompression = true
+enableDropUnifier = true          # global loot modifier for canonical ore drops
