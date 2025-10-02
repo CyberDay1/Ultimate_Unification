@@ -27,6 +27,9 @@ public final class UnifyDataReload extends SimpleJsonResourceReloadListener {
     private static final Map<TagKey<Block>, Item> TAG_DROPS = new HashMap<>();
     private static final Map<String, Item> MATERIAL_DROPS = new HashMap<>();
     private static MaterialsIndex.Snapshot SNAPSHOT = new MaterialsIndex.Snapshot();
+    private static MaterialsIndex.Merge MERGE = new MaterialsIndex.Merge();
+
+    private static int MERGED_COMPRESSION_TIER = 9;
 
     public UnifyDataReload() {
         super(GSON, "unify");
@@ -36,7 +39,7 @@ public final class UnifyDataReload extends SimpleJsonResourceReloadListener {
     protected void apply(Map<ResourceLocation, JsonElement> map, ResourceManager mgr, ProfilerFiller profiler) {
         TAG_DROPS.clear();
         MATERIAL_DROPS.clear();
-        MaterialsIndex.Snapshot aggregated = new MaterialsIndex.Snapshot();
+        MaterialsIndex.Snapshot aggregated = MaterialsIndex.loadBootstrap();
 
         for (Map.Entry<ResourceLocation, JsonElement> entry : map.entrySet()) {
             JsonElement json = entry.getValue();
@@ -46,9 +49,12 @@ public final class UnifyDataReload extends SimpleJsonResourceReloadListener {
             aggregated.merge(parsed);
         }
 
-        SNAPSHOT = aggregated;
+        MERGE = MaterialsIndex.loadMergeLayer(mgr);
+        MaterialsIndex.Snapshot merged = aggregated.applyMerge(MERGE);
+        SNAPSHOT = merged;
+        MERGED_COMPRESSION_TIER = merged.maxCompressionTier();
 
-        for (MaterialsIndex.MaterialEntry material : aggregated.materials()) {
+        for (MaterialsIndex.MaterialEntry material : merged.materials()) {
             if (!material.unify()) continue;
             Item drop = canonicalDrop(material);
             if (drop == null) continue;
@@ -68,9 +74,9 @@ public final class UnifyDataReload extends SimpleJsonResourceReloadListener {
             }
         }
 
-        for (MaterialsIndex.AliasEntry alias : aggregated.oreAliases()) {
+        for (MaterialsIndex.AliasEntry alias : merged.oreAliases()) {
             if (alias.aliasTo() == null || alias.aliasTo().isEmpty()) continue;
-            String canonical = aggregated.canonicalName(alias.aliasTo());
+            String canonical = merged.canonicalName(alias.aliasTo());
             Item drop = null;
             if (canonical != null) {
                 drop = MATERIAL_DROPS.get(canonical);
@@ -128,5 +134,13 @@ public final class UnifyDataReload extends SimpleJsonResourceReloadListener {
 
     public static MaterialsIndex.Snapshot snapshot() {
         return SNAPSHOT;
+    }
+
+    public static MaterialsIndex.Merge merge() {
+        return MERGE;
+    }
+
+    public static int compressionTierCap() {
+        return MERGED_COMPRESSION_TIER;
     }
 }

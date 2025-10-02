@@ -46,6 +46,9 @@ public final class UWCommands {
                         .then(Commands.literal("dump").executes(ctx -> dumpWorldgen(ctx.getSource()))))
                 .then(Commands.literal("diag")
                         .then(Commands.literal("materials").executes(ctx -> diagMaterials(ctx.getSource())))
+                        .then(Commands.literal("material")
+                                .then(Commands.argument("name", StringArgumentType.word())
+                                        .executes(ctx -> diagMaterial(ctx.getSource(), StringArgumentType.getString(ctx, "name")))))
                         .then(Commands.literal("tags")
                                 .then(Commands.argument("material", StringArgumentType.word())
                                         .executes(ctx -> diagTags(ctx.getSource(), StringArgumentType.getString(ctx, "material")))))
@@ -76,7 +79,8 @@ public final class UWCommands {
         allStones.addAll(denyStones);
         List<String> disabledStones = new ArrayList<>(allStones);
 
-        int maxTier = UWConfig.compressionEnabled() ? UWConfig.maxTier() : 0;
+        int datapackTierCap = UnifyDataReload.compressionTierCap();
+        int maxTier = UWConfig.compressionEnabled() ? Math.min(UWConfig.maxTier(), datapackTierCap) : 0;
         sendPrefixed(src, String.format(Locale.ROOT,
                 "Materials: metals=%d gems=%d stones=%d maxCompressionTier=%d",
                 metals.size(), gems.size(), stones.size(), maxTier));
@@ -85,6 +89,74 @@ public final class UWCommands {
         sendList(src, "Enabled stones", stones);
         sendList(src, "Disabled materials", disabledMaterialList);
         sendList(src, "Disabled stones", disabledStones);
+        return 1;
+    }
+
+    private static int diagMaterial(CommandSourceStack src, String materialInput) {
+        String query = materialInput.toLowerCase(Locale.ROOT);
+        MaterialsIndex.Snapshot snapshot = UnifyDataReload.snapshot();
+        MaterialsIndex.MaterialEntry material = snapshot.find(query);
+        if (material == null) {
+            sendPrefixed(src, "Unknown material: " + query);
+            return 0;
+        }
+
+        boolean isAlias = !Objects.equals(material.name(), query);
+        if (isAlias) {
+            sendPrefixed(src, String.format(Locale.ROOT, "Alias '%s' resolved to canonical '%s'.", query, material.name()));
+        } else {
+            sendPrefixed(src, "Material: " + material.name());
+        }
+
+        sendPrefixed(src, String.format(Locale.ROOT,
+                "Kind=%s unify=%s generateOre=%s provideNugget=%s provideStorageBlock=%s",
+                material.kind(), material.unify(), material.generateOre(),
+                material.provideNugget(), material.provideStorageBlock()));
+
+        List<String> aliases = new ArrayList<>(material.aliases());
+        aliases.sort(String::compareTo);
+        sendList(src, "Aliases", aliases);
+
+        List<String> oreTags = material.oreTags().stream()
+                .map(ResourceLocation::toString)
+                .sorted()
+                .toList();
+        sendList(src, "Ore tags", oreTags);
+
+        MaterialsIndex.OreEntry oreEntry = snapshot.oreEntryFor(material.name());
+        if (oreEntry != null) {
+            sendPrefixed(src, String.format(Locale.ROOT,
+                    "Ore variants: stone=%s deepslate=%s netherrack=%s",
+                    oreEntry.stone(), oreEntry.deepslate(), oreEntry.netherrack()));
+        } else {
+            sendPrefixed(src, "Ore variants: (none)");
+        }
+
+        MaterialsIndex.MiningSpec mining = snapshot.miningFor(material.name());
+        sendPrefixed(src, String.format(Locale.ROOT,
+                "Mining: oreLevel=%s blockLevel=%s oreHardness=%.2f blockHardness=%.2f",
+                mining.oreLevel(), mining.blockLevel(), mining.oreHardness(), mining.blockHardness()));
+
+        MaterialsIndex.Merge merge = UnifyDataReload.merge();
+        if (merge.overrides.containsKey(material.name())) {
+            sendPrefixed(src, "Datapack override: applied");
+        }
+
+        Set<String> denyMaterials = UWConfig.denyMaterials();
+        Set<String> denyStones = UWConfig.denyStones();
+        if (denyMaterials.contains(material.name()) || denyMaterials.contains(query)) {
+            sendPrefixed(src, "Warning: material denied via config");
+        }
+        if ("stone".equals(material.kind()) && (denyStones.contains(material.name()) || denyStones.contains(query))) {
+            sendPrefixed(src, "Warning: stone denied via config");
+        }
+
+        Item drop = UnifyDataReload.resolveDrop(material.name());
+        if (drop != null) {
+            ResourceLocation dropId = BuiltInRegistries.ITEM.getKey(drop);
+            sendPrefixed(src, "Canonical drop item=" + dropId);
+        }
+
         return 1;
     }
 

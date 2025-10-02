@@ -4,14 +4,19 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.unifyworks.UnifyWorks;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
+import net.minecraft.server.packs.resources.ResourceManager;
 
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /** Minimal bootstrap reader for materials.json before registries freeze. */
@@ -26,6 +31,9 @@ public class MaterialsIndex {
         private final Map<String, String> aliasToCanonical = new LinkedHashMap<>();
         private final List<AliasEntry> oreAliases = new ArrayList<>();
         private final Map<String, MiningSpec> miningSpecs = new LinkedHashMap<>();
+        private final Map<String, OreEntry> oreByName = new LinkedHashMap<>();
+
+        private int maxCompressionTier = 9;
 
         public List<MaterialEntry> materials() {
             return List.copyOf(materials.values());
@@ -70,6 +78,7 @@ public class MaterialsIndex {
         void addOreEntry(OreEntry entry) {
             ores.removeIf(existing -> existing.name().equals(entry.name()));
             ores.add(entry);
+            oreByName.put(entry.name(), entry);
         }
 
         public void merge(Snapshot other) {
@@ -92,6 +101,7 @@ public class MaterialsIndex {
             for (OreEntry ore : other.ores) {
                 addOreEntry(ore);
             }
+            maxCompressionTier = Math.min(maxCompressionTier, other.maxCompressionTier());
         }
 
         public Snapshot filtered(Set<String> denyMaterials, Set<String> denyStones) {
@@ -100,11 +110,26 @@ public class MaterialsIndex {
 
             Snapshot filtered = new Snapshot();
 
+            filtered.maxCompressionTier = maxCompressionTier;
+
             for (MaterialEntry entry : materials.values()) {
                 if (blockedMaterials.contains(entry.name())) continue;
                 if ("stone".equals(entry.kind()) && blockedStones.contains(entry.name())) continue;
                 filtered.addMaterial(entry);
                 filtered.addMining(entry.name(), miningFor(entry.name()));
+                if ("metal".equals(entry.kind()) && entry.unify() && (entry.provideNugget() || entry.provideStorageBlock())) {
+                    addUnique(filtered.metals, entry.name());
+                }
+                if ("gem".equals(entry.kind()) && entry.unify() && (entry.provideNugget() || entry.provideStorageBlock())) {
+                    addUnique(filtered.gems, entry.name());
+                }
+                if ("stone".equals(entry.kind()) && entry.unify()) {
+                    addUnique(filtered.stones, entry.name());
+                }
+                OreEntry oreEntry = oreByName.get(entry.name());
+                if (oreEntry != null && (oreEntry.stone() || oreEntry.deepslate() || oreEntry.netherrack())) {
+                    filtered.addOreEntry(oreEntry);
+                }
             }
 
             for (AliasEntry alias : oreAliases) {
@@ -116,27 +141,6 @@ public class MaterialsIndex {
                     if (blockedMaterials.contains(aliasTo)) continue;
                 }
                 filtered.addOreAlias(alias);
-            }
-
-            for (OreEntry ore : ores) {
-                if (blockedMaterials.contains(ore.name())) continue;
-                filtered.addOreEntry(ore);
-            }
-
-            for (String metal : metals) {
-                if (!blockedMaterials.contains(metal)) {
-                    addUnique(filtered.metals, metal);
-                }
-            }
-            for (String gem : gems) {
-                if (!blockedMaterials.contains(gem)) {
-                    addUnique(filtered.gems, gem);
-                }
-            }
-            for (String stone : stones) {
-                if (!blockedStones.contains(stone)) {
-                    addUnique(filtered.stones, stone);
-                }
             }
 
             return filtered;
@@ -166,17 +170,221 @@ public class MaterialsIndex {
         void addMining(String name, MiningSpec spec) {
             miningSpecs.put(name, spec == null ? MiningSpec.DEFAULT : spec);
         }
+
+        public OreEntry oreEntryFor(String name) {
+            return oreByName.get(name);
+        }
+
+        public int maxCompressionTier() {
+            return maxCompressionTier;
+        }
+
+        void setMaxCompressionTier(int tier) {
+            this.maxCompressionTier = tier;
+        }
+
+        public Snapshot applyMerge(Merge merge) {
+            if (merge == null) {
+                Snapshot clone = new Snapshot();
+                clone.merge(this);
+                clone.setMaxCompressionTier(maxCompressionTier);
+                return clone;
+            }
+
+            Snapshot merged = new Snapshot();
+            merged.setMaxCompressionTier(merge.maxTierOverride > 0
+                    ? Math.min(maxCompressionTier, merge.maxTierOverride)
+                    : maxCompressionTier);
+
+            Set<String> blockedMaterials = merge.denyMaterials;
+            Set<String> blockedStones = merge.denyStones;
+
+            for (MaterialEntry entry : materials.values()) {
+                if (blockedMaterials.contains(entry.name())) continue;
+                if ("stone".equals(entry.kind()) && blockedStones.contains(entry.name())) continue;
+
+                MaterialOverride override = merge.overrides.get(entry.name());
+                MaterialEntry applied = override != null ? override.apply(entry) : entry;
+                MiningSpec mining = override != null ? override.applyMining(miningFor(entry.name())) : miningFor(entry.name());
+                OreEntry baseOre = oreEntryFor(entry.name());
+                OreEntry oreEntry = override != null ? override.applyVariants(applied, baseOre) : baseOre;
+
+                merged.addMaterial(applied);
+                merged.addMining(applied.name(), mining);
+
+                if ("metal".equals(applied.kind()) && applied.unify() && (applied.provideNugget() || applied.provideStorageBlock())) {
+                    addUnique(merged.metals, applied.name());
+                }
+                if ("gem".equals(applied.kind()) && applied.unify() && (applied.provideNugget() || applied.provideStorageBlock())) {
+                    addUnique(merged.gems, applied.name());
+                }
+                if ("stone".equals(applied.kind()) && applied.unify()) {
+                    addUnique(merged.stones, applied.name());
+                }
+
+                if (oreEntry != null && applied.unify() && (oreEntry.stone() || oreEntry.deepslate() || oreEntry.netherrack())) {
+                    merged.addOreEntry(oreEntry);
+                }
+            }
+
+            for (AliasEntry alias : oreAliases) {
+                if (blockedMaterials.contains(alias.name())) continue;
+                String aliasTo = alias.aliasTo();
+                if (aliasTo != null) {
+                    String canonical = canonicalName(aliasTo);
+                    if (canonical != null && blockedMaterials.contains(canonical)) continue;
+                    if (blockedMaterials.contains(aliasTo)) continue;
+                }
+                if (alias.aliasTo() != null && merged.find(alias.aliasTo()) == null) continue;
+                merged.addOreAlias(alias);
+            }
+
+            return merged;
+        }
     }
 
     public record OreEntry(String name, boolean stone, boolean deepslate, boolean netherrack) {}
 
     public record MaterialEntry(String name, String kind, boolean unify, boolean generateOre,
+                                boolean provideNugget, boolean provideStorageBlock,
                                 List<String> aliases, List<ResourceLocation> oreTags) {
         public List<String> namesWithAliases() {
             List<String> names = new ArrayList<>(1 + aliases.size());
             names.add(name);
             names.addAll(aliases);
             return List.copyOf(names);
+        }
+    }
+
+    public static final class Merge {
+        public final Set<String> denyMaterials = new LinkedHashSet<>();
+        public final Set<String> denyStones = new LinkedHashSet<>();
+        public int maxTierOverride = -1;
+        public final Map<String, MaterialOverride> overrides = new LinkedHashMap<>();
+    }
+
+    public record MaterialOverride(Boolean unify, Boolean generateOre, Boolean provideNugget, Boolean provideStorageBlock,
+                                   List<String> aliasesAdd, MiningOverride mining, VariantsOverride variants) {
+        public MaterialEntry apply(MaterialEntry base) {
+            boolean newUnify = unify != null ? unify : base.unify();
+            boolean newGenerate = generateOre != null ? generateOre : base.generateOre();
+            boolean newProvideNugget = provideNugget != null ? provideNugget : base.provideNugget();
+            boolean newProvideStorage = provideStorageBlock != null ? provideStorageBlock : base.provideStorageBlock();
+
+            List<String> aliases = new ArrayList<>(base.aliases());
+            if (aliasesAdd != null) {
+                for (String alias : aliasesAdd) {
+                    if (!aliases.contains(alias) && !Objects.equals(alias, base.name())) {
+                        aliases.add(alias);
+                    }
+                }
+            }
+            return new MaterialEntry(base.name(), base.kind(), newUnify, newGenerate, newProvideNugget, newProvideStorage,
+                    List.copyOf(aliases), base.oreTags());
+        }
+
+        public MiningSpec applyMining(MiningSpec base) {
+            if (mining == null) return base;
+            String oreLevel = mining.oreLevel != null ? mining.oreLevel : base.oreLevel();
+            String blockLevel = mining.blockLevel != null ? mining.blockLevel : base.blockLevel();
+            float oreHardness = mining.oreHardness != null ? mining.oreHardness : base.oreHardness();
+            float blockHardness = mining.blockHardness != null ? mining.blockHardness : base.blockHardness();
+            return new MiningSpec(oreLevel, blockLevel, oreHardness, blockHardness);
+        }
+
+        public OreEntry applyVariants(MaterialEntry applied, OreEntry base) {
+            if (variants == null && base == null) {
+                return null;
+            }
+            if (!applied.unify()) {
+                return null;
+            }
+
+            boolean stone = base != null && base.stone();
+            boolean deepslate = base != null && base.deepslate();
+            boolean nether = base != null && base.netherrack();
+
+            if (variants != null) {
+                if (variants.stone != null) stone = variants.stone;
+                if (variants.deepslate != null) deepslate = variants.deepslate;
+                if (variants.netherrack != null) nether = variants.netherrack;
+            }
+
+            if (!stone && !deepslate && !nether) {
+                return null;
+            }
+            return new OreEntry(applied.name(), stone, deepslate, nether);
+        }
+    }
+
+    public static final class MiningOverride {
+        final String oreLevel;
+        final String blockLevel;
+        final Float oreHardness;
+        final Float blockHardness;
+
+        public MiningOverride(String oreLevel, String blockLevel, Float oreHardness, Float blockHardness) {
+            this.oreLevel = oreLevel;
+            this.blockLevel = blockLevel;
+            this.oreHardness = oreHardness;
+            this.blockHardness = blockHardness;
+        }
+    }
+
+    public static final class VariantsOverride {
+        final Boolean stone;
+        final Boolean deepslate;
+        final Boolean netherrack;
+
+        public VariantsOverride(Boolean stone, Boolean deepslate, Boolean netherrack) {
+            this.stone = stone;
+            this.deepslate = deepslate;
+            this.netherrack = netherrack;
+        }
+    }
+
+    private static List<String> readStringArray(JsonArray array) {
+        List<String> values = new ArrayList<>(array.size());
+        for (JsonElement element : array) {
+            if (element.isJsonPrimitive() && element.getAsJsonPrimitive().isString()) {
+                String value = element.getAsString();
+                if (!values.contains(value)) {
+                    values.add(value);
+                }
+            }
+        }
+        return List.copyOf(values);
+    }
+
+    private static Boolean readBooleanOverride(JsonObject obj, String key) {
+        if (!obj.has(key) || !obj.get(key).isJsonPrimitive()) {
+            return null;
+        }
+        var primitive = obj.get(key).getAsJsonPrimitive();
+        if (!primitive.isBoolean()) {
+            return null;
+        }
+        return primitive.getAsBoolean();
+    }
+
+    private static String readToolOverride(JsonObject obj, String key) {
+        String value = asString(obj, key);
+        if (value == null) return null;
+        return TOOL_LEVELS.contains(value) ? value : null;
+    }
+
+    private static Float readFloatOverride(JsonObject obj, String key) {
+        if (!obj.has(key) || !obj.get(key).isJsonPrimitive()) {
+            return null;
+        }
+        var primitive = obj.get(key).getAsJsonPrimitive();
+        if (!primitive.isNumber()) {
+            return null;
+        }
+        try {
+            return primitive.getAsFloat();
+        } catch (NumberFormatException ignored) {
+            return null;
         }
     }
 
@@ -194,10 +402,125 @@ public class MaterialsIndex {
         return new Snapshot();
     }
 
+    public static Merge loadMergeLayer(ResourceManager rm) {
+        Merge merge = new Merge();
+        if (rm == null) {
+            return merge;
+        }
+
+        try {
+            Map<ResourceLocation, Resource> filterResources = rm.listResources("unify", rl -> rl.getPath().endsWith("filters.json"));
+            List<Map.Entry<ResourceLocation, Resource>> sortedFilters = new ArrayList<>(filterResources.entrySet());
+            sortedFilters.sort(Comparator
+                    .comparing((Map.Entry<ResourceLocation, Resource> e) -> e.getKey().getNamespace())
+                    .thenComparing(e -> e.getKey().getPath()));
+            for (Map.Entry<ResourceLocation, Resource> entry : sortedFilters) {
+                try (var reader = new InputStreamReader(entry.getValue().open())) {
+                    JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
+                    int version = json.has("version") ? json.get("version").getAsInt() : 1;
+                    if (version != 1) continue;
+                    if (json.has("deny_materials") && json.get("deny_materials").isJsonArray()) {
+                        JsonArray array = json.getAsJsonArray("deny_materials");
+                        array.forEach(el -> {
+                            if (el.isJsonPrimitive() && el.getAsJsonPrimitive().isString()) {
+                                merge.denyMaterials.add(el.getAsString());
+                            }
+                        });
+                    }
+                    if (json.has("deny_stones") && json.get("deny_stones").isJsonArray()) {
+                        JsonArray array = json.getAsJsonArray("deny_stones");
+                        array.forEach(el -> {
+                            if (el.isJsonPrimitive() && el.getAsJsonPrimitive().isString()) {
+                                merge.denyStones.add(el.getAsString());
+                            }
+                        });
+                    }
+                    if (json.has("max_compression_tier") && json.get("max_compression_tier").isJsonPrimitive()) {
+                        try {
+                            int tier = json.get("max_compression_tier").getAsInt();
+                            merge.maxTierOverride = Math.max(1, Math.min(9, tier));
+                        } catch (NumberFormatException ignored) {}
+                    }
+                } catch (Exception ex) {
+                    UnifyWorks.LOGGER.warn("Failed to parse UnifyWorks filters {}", entry.getKey(), ex);
+                }
+            }
+        } catch (Exception ex) {
+            UnifyWorks.LOGGER.warn("Failed to enumerate UnifyWorks filters", ex);
+        }
+
+        try {
+            Map<ResourceLocation, Resource> overrideResources = rm.listResources("unify/overrides", rl -> rl.getPath().endsWith(".json"));
+            List<Map.Entry<ResourceLocation, Resource>> sortedOverrides = new ArrayList<>(overrideResources.entrySet());
+            sortedOverrides.sort(Comparator
+                    .comparing((Map.Entry<ResourceLocation, Resource> e) -> e.getKey().getNamespace())
+                    .thenComparing(e -> e.getKey().getPath()));
+            for (Map.Entry<ResourceLocation, Resource> entry : sortedOverrides) {
+                try (var reader = new InputStreamReader(entry.getValue().open())) {
+                    JsonObject json = JsonParser.parseReader(reader).getAsJsonObject();
+                    int version = json.has("version") ? json.get("version").getAsInt() : 1;
+                    if (version != 1) continue;
+                    String name = asString(json, "name");
+                    if (name == null || name.isEmpty()) continue;
+
+                    Boolean unify = json.has("unify") && json.get("unify").isJsonPrimitive() && json.get("unify").getAsJsonPrimitive().isBoolean()
+                            ? json.get("unify").getAsBoolean() : null;
+                    Boolean generateOre = json.has("generate_ore") && json.get("generate_ore").isJsonPrimitive() && json.get("generate_ore").getAsJsonPrimitive().isBoolean()
+                            ? json.get("generate_ore").getAsBoolean() : null;
+                    Boolean provideNugget = json.has("provide_nugget") && json.get("provide_nugget").isJsonPrimitive() && json.get("provide_nugget").getAsJsonPrimitive().isBoolean()
+                            ? json.get("provide_nugget").getAsBoolean() : null;
+                    Boolean provideStorage = json.has("provide_storage_block") && json.get("provide_storage_block").isJsonPrimitive() && json.get("provide_storage_block").getAsJsonPrimitive().isBoolean()
+                            ? json.get("provide_storage_block").getAsBoolean() : null;
+
+                    List<String> aliasesAdd = json.has("aliases_add") && json.get("aliases_add").isJsonArray()
+                            ? readStringArray(json.getAsJsonArray("aliases_add")) : List.of();
+
+                    MiningOverride mining = null;
+                    if (json.has("mining") && json.get("mining").isJsonObject()) {
+                        JsonObject miningObj = json.getAsJsonObject("mining");
+                        String oreLevel = readToolOverride(miningObj, "ore_level");
+                        String blockLevel = readToolOverride(miningObj, "block_level");
+                        Float oreHardness = readFloatOverride(miningObj, "ore_hardness");
+                        Float blockHardness = readFloatOverride(miningObj, "block_hardness");
+                        mining = new MiningOverride(oreLevel, blockLevel, oreHardness, blockHardness);
+                    }
+
+                    VariantsOverride variants = null;
+                    if (json.has("variants") && json.get("variants").isJsonObject()) {
+                        JsonObject variantsObj = json.getAsJsonObject("variants");
+                        Boolean stone = readBooleanOverride(variantsObj, "stone");
+                        Boolean deepslate = readBooleanOverride(variantsObj, "deepslate");
+                        Boolean netherrack = readBooleanOverride(variantsObj, "netherrack");
+                        variants = new VariantsOverride(stone, deepslate, netherrack);
+                    }
+
+                    MaterialOverride override = new MaterialOverride(unify, generateOre, provideNugget, provideStorage, aliasesAdd, mining, variants);
+                    merge.overrides.put(name, override);
+                } catch (Exception ex) {
+                    UnifyWorks.LOGGER.warn("Failed to parse UnifyWorks override {}", entry.getKey(), ex);
+                }
+            }
+        } catch (Exception ex) {
+            UnifyWorks.LOGGER.warn("Failed to enumerate UnifyWorks overrides", ex);
+        }
+
+        return merge;
+    }
+
     public static Snapshot fromJson(JsonElement root) {
         Snapshot snap = new Snapshot();
         if (root == null || !root.isJsonObject()) return snap;
         JsonObject obj = root.getAsJsonObject();
+        if (obj.has("compression") && obj.get("compression").isJsonObject()) {
+            JsonObject compression = obj.getAsJsonObject("compression");
+            if (compression.has("max_tier") && compression.get("max_tier").isJsonPrimitive()) {
+                try {
+                    int tier = compression.get("max_tier").getAsInt();
+                    snap.setMaxCompressionTier(Math.max(1, Math.min(9, tier)));
+                } catch (NumberFormatException ignored) {}
+            }
+        }
+
         JsonArray materials = obj.getAsJsonArray("materials");
         if (materials == null) return snap;
 
@@ -223,13 +546,12 @@ public class MaterialsIndex {
         }
 
         boolean generateOre = material.has("generate_ore") && material.get("generate_ore").getAsBoolean();
-        List<String> aliases = readStringList(material, "aliases");
-        List<ResourceLocation> oreTags = readTagList(material, "ore");
-        snap.addMaterial(new MaterialEntry(name, kind, unify, generateOre, aliases, oreTags));
-        snap.addMining(name, readMiningSpec(material));
-
         boolean provideNugget = material.has("provide_nugget") && material.get("provide_nugget").getAsBoolean();
         boolean provideStorageBlock = material.has("provide_storage_block") && material.get("provide_storage_block").getAsBoolean();
+        List<String> aliases = readStringList(material, "aliases");
+        List<ResourceLocation> oreTags = readTagList(material, "ore");
+        snap.addMaterial(new MaterialEntry(name, kind, unify, generateOre, provideNugget, provideStorageBlock, aliases, oreTags));
+        snap.addMining(name, readMiningSpec(material));
 
         if ("metal".equals(kind) && unify && (provideNugget || provideStorageBlock)) {
             addUnique(snap.metals, name);

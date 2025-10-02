@@ -61,7 +61,8 @@ public class UnifyWorks {
                 compressionSnapshot.stones.addAll(snap.stones);
             }
 
-            UWCompressed.bootstrap(compressionSnapshot, UWConfig.maxTier());
+            int tier = Math.min(UWConfig.maxTier(), snap.maxCompressionTier());
+            UWCompressed.bootstrap(compressionSnapshot, tier);
         }
 
         modBus.addListener(this::onCommonSetup);

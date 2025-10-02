@@ -1,0 +1,1 @@
+{ "version": 1, "name": "osmium", "aliases_add": ["os"], "mining": { "ore_level": "iron", "block_level": "stone", "ore_hardness": 3.0, "block_hardness": 5.0 } }
