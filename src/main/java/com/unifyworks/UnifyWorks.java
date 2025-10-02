@@ -20,13 +20,16 @@ public class UnifyWorks {
 
         IEventBus modBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        var snap = MaterialsIndex.loadBootstrap();
+        MaterialsIndex.Snapshot snap = MaterialsIndex.loadBootstrap()
+                .filtered(UWConfig.denyMaterials(), UWConfig.denyStones());
         UWItems.ITEMS.register(modBus);
         UWBlocks.BLOCKS.register(modBus);
         UWOres.BLOCKS.register(modBus);
         UWOreItems.ITEMS.register(modBus);
-        UWCompressed.ITEMS.register(modBus);
-        UWCompressed.BLOCKS.register(modBus);
+        if (UWConfig.compressionEnabled()) {
+            UWCompressed.ITEMS.register(modBus);
+            UWCompressed.BLOCKS.register(modBus);
+        }
         UWCreativeTab.TABS.register(modBus);
         LootHooks.init(modBus);
 
@@ -34,7 +37,20 @@ public class UnifyWorks {
         UWBlocks.bootstrap(snap.metals, snap.gems);
         UWOres.bootstrap(snap);
         UWOreItems.bootstrap();
-        UWCompressed.bootstrap(snap, 9);
+        if (UWConfig.compressionEnabled()) {
+            MaterialsIndex.Snapshot compressionSnapshot = new MaterialsIndex.Snapshot();
+            if (UWConfig.compressionMetals()) {
+                compressionSnapshot.metals.addAll(snap.metals);
+            }
+            if (UWConfig.compressionGems()) {
+                compressionSnapshot.gems.addAll(snap.gems);
+            }
+            if (UWConfig.compressionStones()) {
+                compressionSnapshot.stones.addAll(snap.stones);
+            }
+
+            UWCompressed.bootstrap(compressionSnapshot, UWConfig.maxTier());
+        }
 
         modBus.addListener(this::onCommonSetup);
     }

@@ -28,7 +28,7 @@ public class UWDropUnifier extends LootModifier {
 
     @Override
     protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext ctx) {
-        if (!enabledFromData || !UWConfig.COMMON.dropUnifierEnabled()) {
+        if (!enabledFromData || !UWConfig.dropUnifierEnabled()) {
             return generatedLoot;
         }
 
