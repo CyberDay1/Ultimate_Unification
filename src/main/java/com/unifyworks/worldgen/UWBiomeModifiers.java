@@ -13,6 +13,8 @@ public final class UWBiomeModifiers {
 
     public static final RegistryObject<Codec<? extends BiomeModifier>> CONDITIONAL_ADD =
             SERIALIZERS.register("conditional_add_features", () -> ConditionalAddFeatures.CODEC);
+    public static final RegistryObject<Codec<? extends BiomeModifier>> CONDITIONAL_REMOVE =
+            SERIALIZERS.register("conditional_remove_features", () -> ConditionalRemoveFeatures.CODEC);
 
     private UWBiomeModifiers() {}
 }
