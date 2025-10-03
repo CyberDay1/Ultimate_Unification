@@ -1,6 +1,8 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:netherrack_quartz_ore"
+    "unifyworks:deepslate_quartz_ore",
+    "unifyworks:netherrack_quartz_ore",
+    "unifyworks:quartz_ore"
   ]
 }

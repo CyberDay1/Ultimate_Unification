@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_lapis_lazuli",
     "unifyworks:lapis_lazuli_nugget"
   ]
 }

@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:diamond_block"
-  ],
-  "replace": false
+  ]
 }

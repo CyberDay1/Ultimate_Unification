@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:iron_block"
-  ],
-  "replace": false
+  ]
 }

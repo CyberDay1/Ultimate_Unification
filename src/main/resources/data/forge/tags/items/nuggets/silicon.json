@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_silicon",
     "unifyworks:silicon_nugget"
   ]
 }

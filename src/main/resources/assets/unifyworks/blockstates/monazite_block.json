@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unifyworks:block/monazite_block"
+    }
+  }
+}

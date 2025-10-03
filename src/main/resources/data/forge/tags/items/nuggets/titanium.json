@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_titanium",
     "unifyworks:titanium_nugget"
   ]
 }

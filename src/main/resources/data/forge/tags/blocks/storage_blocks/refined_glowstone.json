@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:refined_glowstone_block"
-  ],
-  "replace": false
+  ]
 }

@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:monazite_block"
-  ],
-  "replace": false
+  ]
 }

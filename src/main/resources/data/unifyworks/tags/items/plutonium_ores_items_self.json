@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "unifyworks:plutonium_ore",
+    "unifyworks:deepslate_plutonium_ore"
+  ]
 }

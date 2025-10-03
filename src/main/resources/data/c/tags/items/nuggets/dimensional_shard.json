@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_dimensional_shard",
     "unifyworks:dimensional_shard_nugget"
   ]
 }

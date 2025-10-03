@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "unifyworks:stainless_steel_ore",
+    "unifyworks:deepslate_stainless_steel_ore"
+  ]
 }

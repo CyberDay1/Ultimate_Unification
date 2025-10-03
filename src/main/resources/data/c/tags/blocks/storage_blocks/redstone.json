@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:redstone_block"
-  ],
-  "replace": false
+  ]
 }

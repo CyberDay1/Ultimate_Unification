@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_aluminum",
     "unifyworks:aluminum_nugget"
   ]
 }

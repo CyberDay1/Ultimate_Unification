@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_antimony",
     "unifyworks:antimony_nugget"
   ]
 }

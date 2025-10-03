@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:uranium_block"
-  ],
-  "replace": false
+  ]
 }

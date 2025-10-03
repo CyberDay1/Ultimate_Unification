@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_constantan",
     "unifyworks:constantan_nugget"
   ]
 }
