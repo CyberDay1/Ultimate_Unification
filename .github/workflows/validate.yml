@@ -1,0 +1,32 @@
+name: validate
+on:
+  pull_request:
+  push:
+    branches: [ main, master ]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Install validators
+        run: |
+          npm init -y >/dev/null 2>&1 || true
+          npm install ajv@8 --no-audit --no-fund
+      - name: Run validators
+        run: |
+          node tools/validate_materials.js
+          node tools/validate_filters_overrides.js
+          python3 tools/scan_assets.py
+          python3 scripts/assert-no-placeholders.py
+      - name: Generate reports
+        run: |
+          mkdir -p REPORTS
+          python3 tools/scan_assets.py > REPORTS/qa_scan.json || true
+          python3 tools/gen_placeholder_textures.py > REPORTS/placeholder_textures.json || true
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: unifyworks-reports
+          path: REPORTS/**
