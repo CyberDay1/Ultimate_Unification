@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "#unifyworks:plutonium_ores_items_self"
-  ],
-  "replace": false
+  ]
 }

@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:platinum_block"
-  ],
-  "replace": false
+  ]
 }

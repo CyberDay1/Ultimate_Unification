@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "unifyworks:refined_obsidian_ore",
+    "unifyworks:deepslate_refined_obsidian_ore"
+  ]
 }

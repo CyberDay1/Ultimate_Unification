@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "unifyworks:netherite_ore",
+    "unifyworks:deepslate_netherite_ore"
+  ]
 }

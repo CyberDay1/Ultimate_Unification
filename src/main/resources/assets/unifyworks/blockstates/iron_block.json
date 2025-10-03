@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unifyworks:block/iron_block"
+    }
+  }
+}

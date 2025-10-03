@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:copper_block"
-  ],
-  "replace": false
+  ]
 }

@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:titanium_block"
-  ],
-  "replace": false
+  ]
 }

@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:netherite_block"
-  ],
-  "replace": false
+  ]
 }

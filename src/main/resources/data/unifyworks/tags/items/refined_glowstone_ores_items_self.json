@@ -1,4 +1,7 @@
 {
   "replace": false,
-  "values": []
+  "values": [
+    "unifyworks:refined_glowstone_ore",
+    "unifyworks:deepslate_refined_glowstone_ore"
+  ]
 }

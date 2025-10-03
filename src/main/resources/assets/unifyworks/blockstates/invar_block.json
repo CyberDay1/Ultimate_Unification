@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "unifyworks:block/invar_block"
+    }
+  }
+}

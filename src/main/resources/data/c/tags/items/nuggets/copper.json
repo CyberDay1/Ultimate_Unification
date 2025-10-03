@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:nugget_copper",
     "unifyworks:copper_nugget"
   ]
 }

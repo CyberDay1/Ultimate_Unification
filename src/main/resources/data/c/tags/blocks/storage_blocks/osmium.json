@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:osmium_block"
-  ],
-  "replace": false
+  ]
 }

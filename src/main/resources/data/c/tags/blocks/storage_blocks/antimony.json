@@ -1,6 +1,6 @@
 {
+  "replace": false,
   "values": [
     "unifyworks:antimony_block"
-  ],
-  "replace": false
+  ]
 }

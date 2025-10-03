@@ -1,7 +1,6 @@
 {
   "replace": false,
   "values": [
-    "unifyworks:bauxite_ore",
-    "unifyworks:deepslate_bauxite_ore"
+    "#unifyworks:bauxite_ores_items_self"
   ]
 }
